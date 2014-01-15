@@ -16,10 +16,14 @@ pages = [
     ['Page #7', 'Some text']
 ]
 
-pages.each do |p|
-  Page.create([:title => p[0], :body => p[1]])
-end
+categories = ['Category #1', 'Category #2', 'Category #3']
 
-['Category #1', 'Category #2', 'Category #3'].each do |c|
+categories.each do |c|
   Category.find_or_create_by_name c
 end
+
+pages.each do |p|
+  Page.find_or_create_by_title(:title => p[0], :body => p[1])
+  #@page.categories >> categories[1]
+end
+

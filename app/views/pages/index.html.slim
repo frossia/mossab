@@ -2,3 +2,18 @@ h2 Pages#index
 p as ffas gaga s!!!!!!!!!!111
 .well
 	h1 From Mac
+	h1 From Mac
+	h1 From Mac
+	h1 From Mac
+	div
+      - @catigories.each do |cat|
+        a.label.label-info href='#' =' cat.name
+    div
+      - @pages.each do |page|
+        a href='#' = page.title
+        a.label.label-info href='#'
+          - page.categories.each do |cat|
+            = cat.name
+        p = page.body
+
+
