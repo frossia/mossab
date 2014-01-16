@@ -15,12 +15,13 @@
  @import 'bootstrap';
 
  body {
+    height: 100%;
  	background: image-url('grid_noise.png') repeat;
  }
 
  #header {
  	width: 100%;
- 	min-height: 293px;
+    height: 100%;
  	background: image-url('1300.jpg') no-repeat top center,
  				image-url('1300f.jpg') no-repeat bottom center;
  }

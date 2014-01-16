@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20140115080041) do
   end
 
   create_table "categories_pages", force: true do |t|
-    t.integer "categories_id_id"
-    t.integer "pages_id_id"
+    t.integer "category_id"
+    t.integer "page_id"
   end
 
   create_table "pages", force: true do |t|

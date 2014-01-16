@@ -36,6 +36,10 @@ gem "slim-rails"
 
 gem 'bootstrap-sass'
 
+gem 'table_print'
+
+gem 'nokogiri'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
