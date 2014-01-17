@@ -40,6 +40,8 @@ gem 'table_print'
 
 gem 'nokogiri'
 
+gem 'meta_request'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

@@ -1,12 +1,88 @@
 doctype
 html
   head
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     title Mossab
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   body
-  	#header
-	  	.container
-	    	= yield
-    	#footer asd
+  	#st-container.st-container
+      /!
+        | example menus
+        | these menus will be on top of the push wrapper
+
+      /! content push wrapper
+      .st-pusher
+        /!
+          | example menus
+          | these menus will be under the push wrapper
+
+        nav#menu-3.st-menu.st-effect-3
+          h2.icon.icon-stack Sidebar
+          ul
+            li
+              a.icon.icon-data href="#" 123
+            li
+              a.icon.icon-location href="#"  123
+            li
+              a.icon.icon-study href="#"  123
+            li
+              a.icon.icon-photo href="#"  123
+            li
+              a.icon.icon-wallet href="#"123
+            li
+              a.icon.icon-wallet href="#" 123
+            li
+              a.icon.icon-wallet href="#" 123
+            li
+              a.icon.icon-wallet href="#" 123
+            li
+              a.icon.icon-wallet href="#"  123
+            li
+              a.icon.icon-wallet href="#" 123
+            li
+              a.icon.icon-wallet href="#"  123
+            li
+              a.icon.icon-wallet href="#"  123
+            li
+              a.icon.icon-wallet href="#" 123
+            li
+              a.icon.icon-wallet href="#"  123
+            li
+              a.icon.icon-wallet href="#"   123
+            li
+              a.icon.icon-wallet href="#"  123
+            li
+              a.icon.icon-wallet href="#"  123
+            li
+              a.icon.icon-wallet href="#"  123
+            li
+              a.icon.icon-wallet href="#" 123
+            li
+              a.icon.icon-wallet href="#"  123
+            li
+              a.icon.icon-wallet href="#"  123
+            li
+              a.icon.icon-wallet href="#" 4444
+            li
+              a.icon.icon-wallet href="#"  123
+            li
+              a.icon.icon-wallet href="#"   123
+            li
+              a.icon.icon-wallet href="#"  123
+            li
+              a.icon.icon-wallet href="#"  123
+
+
+        .st-content
+          #st-trigger-effects.column
+            button.hidden-lg.hidden-md.btn.btn-default data-effect="st-effect-3"   1
+            #header
+              .container
+                = yield
+                #footer asd
+
+    = javascript_include_tag "classie.js"
+    = javascript_include_tag "sidebarEffects.js"
+
