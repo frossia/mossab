@@ -11,12 +11,6 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
-#@data = File.read("pages.json")
-#@pt =  ActiveSupport::JSON.decode(@data)
-#puts @pt['title'][0]
-
-
-pagee = []
 
 pages = [
     ['Page #1', 'Some text'],
@@ -28,7 +22,7 @@ pages = [
     ['Page #7', 'Some text']
 ]
 
-categories = ['Category #1', 'Category #2', 'Category #3']
+categories = ['Муниципальное образование', 'Совет депутатов', 'Администрация муниципального округа', 'Полномочия в сфере ЖКХ', 'Молодежная общественная палата', 'Военно-патриотическое воспитание', 'Призыв на военную службу', 'Выборы', 'Газета «Москворечье-Сабурово: вчера, сегодня, завтра»', 'ВАЖНАЯ ИНФОРМАЦИЯ']
 
 categories.each do |c|
   Category.find_or_create_by_name c
@@ -43,8 +37,9 @@ end
 
 pages.each do |p|
   @p = Page.find_or_create_by_title(:title => p[0], :body => p[1])
-  @p.categories << Category.first(:offset => rand(Category.count))
 end
+
+
 
 #puts 'body'
 #puts body[1]

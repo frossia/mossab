@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4031552016">
+  <component name="DataSourceManagerImpl" format="xml" hash="847874682">
     <data-source source="LOCAL" name="Rails mossab: development" uuid="1f52c398-4cba-41a0-a63e-57f4c6689e1a">
       <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>

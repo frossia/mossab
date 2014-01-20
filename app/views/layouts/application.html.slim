@@ -1,11 +1,13 @@
 doctype
 html
   head
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
     title Mossab
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
+    link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"
+
   body
   	#st-container.st-container
       /!
@@ -19,70 +21,62 @@ html
           | these menus will be under the push wrapper
 
         nav#menu-3.st-menu.st-effect-3
-          h2.icon.icon-stack Sidebar
-          ul
-            li
-              a.icon.icon-data href="#" 123
-            li
-              a.icon.icon-location href="#"  123
-            li
-              a.icon.icon-study href="#"  123
-            li
-              a.icon.icon-photo href="#"  123
-            li
-              a.icon.icon-wallet href="#"123
-            li
-              a.icon.icon-wallet href="#" 123
-            li
-              a.icon.icon-wallet href="#" 123
-            li
-              a.icon.icon-wallet href="#" 123
-            li
-              a.icon.icon-wallet href="#"  123
-            li
-              a.icon.icon-wallet href="#" 123
-            li
-              a.icon.icon-wallet href="#"  123
-            li
-              a.icon.icon-wallet href="#"  123
-            li
-              a.icon.icon-wallet href="#" 123
-            li
-              a.icon.icon-wallet href="#"  123
-            li
-              a.icon.icon-wallet href="#"   123
-            li
-              a.icon.icon-wallet href="#"  123
-            li
-              a.icon.icon-wallet href="#"  123
-            li
-              a.icon.icon-wallet href="#"  123
-            li
-              a.icon.icon-wallet href="#" 123
-            li
-              a.icon.icon-wallet href="#"  123
-            li
-              a.icon.icon-wallet href="#"  123
-            li
-              a.icon.icon-wallet href="#" 4444
-            li
-              a.icon.icon-wallet href="#"  123
-            li
-              a.icon.icon-wallet href="#"   123
-            li
-              a.icon.icon-wallet href="#"  123
-            li
-              a.icon.icon-wallet href="#"  123
+          = render 'layouts/sideMenu'
+
+
 
 
         .st-content
-          #st-trigger-effects.column
-            button.hidden-lg.hidden-md.btn.btn-default data-effect="st-effect-3"   1
-            #header
-              .container
-                = yield
-                #footer asd
+          #st-trigger-effects.column.hidden-lg.hidden-md
+            button.btn.btn-success.fa.fa-bars.fa-2x#menu_btn data-effect="st-effect-3"
+          #wrapper
+            .container
+              = render 'layouts/header'
+
+              .row
+                .col-md-8
+                  /#carousel-example-generic.carousel.slide data-ride="carousel"
+                    /! Indicators
+                    ol.carousel-indicators
+                      li.active data-slide-to="0" data-target="#carousel-example-generic"
+                      li data-slide-to="1" data-target="#carousel-example-generic"
+                      li data-slide-to="2" data-target="#carousel-example-generic"
+                    /! Wrapper for slides
+                    .carousel-inner
+                      .item.active
+                        = image_tag 'posts-tmp/1.JPG'
+                          .carousel-caption
+                            h3 ASFASF
+                            p OPisanie
+                      .item
+                        = image_tag 'posts-tmp/2.JPG'
+                          .carousel-caption
+                            h3 ASFASF
+                            p OPisanie
+                      .item
+                        = image_tag 'posts-tmp/3.JPG'
+                          .carousel-caption
+                            h3 ASFASF
+                            p OPisanie
+
+                    /! Controls
+                    a.left.carousel-control data-slide="prev" href="#carousel-example-generic"
+                      span.glyphicon.glyphicon-chevron-left
+                    a.right.carousel-control data-slide="next" href="#carousel-example-generic"
+                      span.glyphicon.glyphicon-chevron-right
+
+                .col-md-4
+                  p TEST
+
+              = yield
+              #footer
+                p Copyright
 
     = javascript_include_tag "classie.js"
     = javascript_include_tag "sidebarEffects.js"
+    javascript:
+      $( document ).ready(function() {
+          console.log( "ready!" );
+          jQuery(".fit").fitText(0, { minFontSize: '20px', maxFontSize: '140px' });
+      });
 

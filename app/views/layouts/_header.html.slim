@@ -1,0 +1,29 @@
+br
+#header.row
+  .col-md-6
+    #logo
+      = image_tag('gerb100.png')
+  .col-md-6#offset
+    - if user_signed_in?
+      p.t-r
+        ' Здравствуй
+        b' #{current_user.email}
+        = link_to 'Выйти', destroy_user_session_path, :method => :delete
+    .dropdown.t-r
+      a.btn.btn-success data-toggle="dropdown" href="#"  asfasf
+      .dropdown-menu.row
+        #menu_content
+          - @catigories.each_with_index do |cat, i|
+            - if (i != 0) && (i % 3).zero?
+              .row
+              hr
+            .col-md-4
+              div.inline
+                i(class='#{cat.icon} fa-lg')
+                h6 =' ' '+cat.name
+              br
+              - cat.pages.each do |page|
+                p: a href='#' = page.title
+
+
+

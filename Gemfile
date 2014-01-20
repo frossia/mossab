@@ -42,6 +42,13 @@ gem 'nokogiri'
 
 gem 'meta_request'
 
+gem 'seedbank'
+
+gem 'protected_attributes'
+
+gem 'devise', '3.0.0.rc'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
