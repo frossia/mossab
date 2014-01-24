@@ -1,13 +1,1 @@
-h2 Pages#index
-.well
-	div
-      - @catigories.each do |cat|
-        a.label.label-info href='#' =' cat.name
-    div
-      - @pages.each do |page|
-        a.h4 href='#' =' page.title
-        - page.categories.each do |cat|
-            a.label.label-info href='#' =' cat.name
-
-
-
+= render 'pages/tmp'

@@ -1,0 +1,14 @@
+h2 Pages#index
+.well
+  - @pages.each do |page|
+    p
+      a.h4 href='#' =' page.title
+      p = page.introtext.html_safe
+    .clearfix
+    hr
+    hr
+    /- page.categories.each do |cat|
+      a.label.label-info href='#' =' cat.name
+
+
+

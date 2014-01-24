@@ -9,21 +9,31 @@ br
         ' Здравствуй
         b' #{current_user.email}
         = link_to 'Выйти', destroy_user_session_path, :method => :delete
-    .dropdown.t-r
-      a.btn.btn-success data-toggle="dropdown" href="#"  asfasf
-      .dropdown-menu.row
-        #menu_content
-          - @catigories.each_with_index do |cat, i|
-            - if (i != 0) && (i % 3).zero?
-              .row
-              hr
-            .col-md-4
-              div.inline
-                i(class='#{cat.icon} fa-lg')
-                h6 =' ' '+cat.name
-              br
-              - cat.pages.each do |page|
-                p: a href='#' = page.title
 
 
+/.menubox
+  a href='#' Главная
+.row
+  #menu.btn-group.btn-group-justified
+    a.btn.btn-lg type="button"  Муниципальное образование
+    a.btn.btn-lg type="button"  Совет депутатов
+    a.btn.btn-lg type="button"  Администрация муниципального округа
+    .btn-group
+      a.btn.btn-lg.dropdown-toggle data-toggle="dropdown" type="button"
+        ' Меню
+        span.caret
+      .dropdown-menu
+        - @catigories.each_with_index do |cat, i|
+          - if (i != 0) && (i % 3).zero?
+            .row
+            hr
+          .col-md-4
+            div.inline
+              i(class='#{cat.icon} fa-lg')
+              h5 = '&nbsp'.html_safe + cat.name
+            br
+            - cat.pages.each do |page|
+              p: a href='#' = page.title
+.row.clearfix
+  .menu-shadow
 
