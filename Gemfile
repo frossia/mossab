@@ -46,7 +46,10 @@ gem 'seedbank'
 
 gem 'protected_attributes'
 
-gem 'devise', '3.0.0.rc'
+gem 'devise'
+
+gem 'activeadmin', github: 'gregbell/active_admin'
+
 
 
 # Use ActiveModel has_secure_password

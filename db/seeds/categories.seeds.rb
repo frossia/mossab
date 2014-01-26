@@ -10,8 +10,9 @@ if Category.count != 0
   puts 'Categories is not empty! DELETING...'
   Category.destroy_all
   puts 'DELETED!'
-  puts 'Start adding categories...'
 end
+
+puts 'Start adding categories...'
 
 #puts json
 #puts categories
