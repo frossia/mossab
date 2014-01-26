@@ -100,15 +100,15 @@ img {
     border-right: 1px solid #ffe11f;
     border-left: 1px solid #fca612;
     width: 100%;
-    &:first-child {
-      border-left: none;
-    }
     &:hover {
       @include gradient(#ffee00, #fca612);
     }
   }
 
   .btn-group {
+    a {
+      border-right: 1px solid #fca612;
+    }
     width: 30%;
   }
 
