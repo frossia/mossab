@@ -1,0 +1,23 @@
+#box.content-panel
+  /= link_to ('<i class="fa fa-arrow-left"></i> ').html_safe + 'Назад', posts_path, :class => 'btn btn-default btn-xs pull-left', :style => 'margin: 10px 10px 10px 0;'
+  a.btn.btn-default.btn-xs.pull-left.hidden-xs style='margin: 10px 10px 10px 0;' href='#{posts_path}'
+    i.fa.fa-chevron-left>
+    | Назад
+  h4.h-post.pull-left =' @post.title
+  hr.hr-post
+  .t-j
+    = raw @post.introtext
+    = raw @post.fulltext
+  /- unless post.tags.empty? && post.fulltext.empty?
+  hr.hr-post
+  - unless @post.updated_at.nil?
+    i.fa.fa-calendar.light.small
+      '
+      - if @post.updated_at.to_date == Date.today
+        span> Сегодня
+      - else
+        span> = I18n.l @post.updated_at
+  - unless @post.tags.empty?
+    - @post.tags.each do |tag|
+      span.label.label-info<> = tag.name
+  .clearfix

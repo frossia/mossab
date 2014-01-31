@@ -13,5 +13,21 @@ ActiveAdmin.register Page do
   #  permitted << :other if resource.something?
   #  permitted
   # end
+
+  index do
+    column :title
+    column :published
+
+    default_actions
+  end
+
+  form do |f|
+    f.inputs "Admin Details" do
+      f.input :title
+      f.input :introtext, :as => :ckeditor
+      f.input :fulltext, :as => :ckeditor
+    end
+    f.actions
+  end
   
 end

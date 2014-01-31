@@ -50,6 +50,14 @@ gem 'devise'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+gem 'ckeditor'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
+
+gem 'bourbon'
+
 
 
 # Use ActiveModel has_secure_password

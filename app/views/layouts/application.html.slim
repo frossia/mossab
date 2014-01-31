@@ -33,50 +33,52 @@ html
             .container
               = render 'layouts/header'
 
-              .row
+              #content-row.row
                 .col-md-8
-                  /#carousel-example-generic.carousel.slide data-ride="carousel"
-                    /! Indicators
-                    ol.carousel-indicators
-                      li.active data-slide-to="0" data-target="#carousel-example-generic"
-                      li data-slide-to="1" data-target="#carousel-example-generic"
-                      li data-slide-to="2" data-target="#carousel-example-generic"
-                    /! Wrapper for slides
-                    .carousel-inner
-                      .item.active
-                        = image_tag 'posts-tmp/1.JPG'
-                          .carousel-caption
-                            h3 ASFASF
-                            p OPisanie
-                      .item
-                        = image_tag 'posts-tmp/2.JPG'
-                          .carousel-caption
-                            h3 ASFASF
-                            p OPisanie
-                      .item
-                        = image_tag 'posts-tmp/3.JPG'
-                          .carousel-caption
-                            h3 ASFASF
-                            p OPisanie
-
-                    /! Controls
-                    a.left.carousel-control data-slide="prev" href="#carousel-example-generic"
-                      span.glyphicon.glyphicon-chevron-left
-                    a.right.carousel-control data-slide="next" href="#carousel-example-generic"
-                      span.glyphicon.glyphicon-chevron-right
-
+                  = yield
                 .col-md-4
-                  p TEST
+                  = render 'layouts/widgets'
 
-              = yield
               /#footer
                 p Copyright
 
-    = javascript_include_tag "classie.js"
     = javascript_include_tag "sidebarEffects.js"
-    javascript:
-      $( document ).ready(function() {
-          console.log( "ready!" );
-          jQuery(".fit").fitText(0, { minFontSize: '20px', maxFontSize: '140px' });
+
+javascript:
+
+  function loadMore(pageNo) {
+      var url = '/posts?page=';
+      $.get(url + pageNo, function(response) {
+          $("#posts").append(response);
       });
+  }
+
+
+  $(document).ready(function(){
+
+    $("#menubtn").click(function () {
+        $("#menubtn").toggleClass('hightlight');
+        $("#dropmenu").slideToggle("slow");
+    });
+
+
+
+    var currPage = 1;
+    $("a.next").click(function() {
+        loadMore(++currPage);
+    });
+
+
+
+    $('.bxslider').bxSlider({
+      adaptiveHeight: true,
+      easing: 'ease',
+      infiniteLoop: false,
+      hideControlOnEnd: true,
+      pager: false
+    });
+  });
+
+
+
 

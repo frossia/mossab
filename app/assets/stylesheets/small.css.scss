@@ -2,4 +2,16 @@
   #logo {
     text-align: center;
   }
+
+
+  #content-row {
+    .col-md-8 {
+      padding-left: 10px;
+    }
+    .col-md-4 {
+      padding-right: 0;
+    }
+  }
+
+
 }

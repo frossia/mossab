@@ -1,5 +1,6 @@
 Mossab::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => 'posts#index'
@@ -9,7 +10,13 @@ Mossab::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  resources :posts
+  resources :newspapers
+  resources :posts do
+    collection do
+      get 'videos'
+    end
+  end
+  #get 'posts#videos'
   resources :pages
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

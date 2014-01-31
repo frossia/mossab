@@ -1,0 +1,8 @@
+- @videos.each_with_index do |video,i|
+  - if (i != 0) && (i % 3).zero?
+    .clearfix
+  .col-md-4.t-c.newspaper-panel
+    h4 = video.title
+    hr.hr-newspaper
+    .video-container
+      = raw video.introtext

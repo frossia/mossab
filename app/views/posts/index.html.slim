@@ -1,1 +1,11 @@
-.row
+#posts
+  = render :partial => @posts
+= link_to_next_page @posts, 'ЕЩЕ', :remote => true, :id=>"load_more_link", :class=>'btn btn-success btn-lg'
+/- @posts.each_with_index do |page, i|
+
+  h3
+    span' = i + 1
+    = page.title
+  .t-j = raw page.introtext
+  .clearfix
+/= paginate @posts

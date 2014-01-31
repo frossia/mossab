@@ -2,38 +2,42 @@ br
 #header.row
   .col-md-6
     #logo
-      = image_tag('gerb100.png')
+      = link_to :root
+        = image_tag('gerb100.gif')
   .col-md-6#offset
-    - if user_signed_in?
+    - if admin_user_signed_in?
       p.t-r
-        ' Здравствуй
-        b' #{current_user.email}
-        = link_to 'Выйти', destroy_user_session_path, :method => :delete
+        b' #{current_admin_user.email}
+        = link_to 'Выйти', destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-xs'
 
 
 /.menubox
   a href='#' Главная
-.row
-  #menu.btn-group.btn-group-justified
-    a.btn.btn-lg type="button"  Муниципальное образование
-    a.btn.btn-lg type="button"  Совет депутатов
-    a.btn.btn-lg type="button"  Администрация муниципального округа
-    .btn-group
-      a.btn.btn-lg.dropdown-toggle data-toggle="dropdown" type="button"
-        ' Меню
-        span.caret
-      .dropdown-menu
-        - @catigories.each_with_index do |cat, i|
-          - if (i != 0) && (i % 3).zero?
-            .row
-            hr
-          .col-md-4
-            div.inline
-              i(class='#{cat.icon} fa-lg')
-              h5 = '&nbsp'.html_safe + cat.name
-            br
-            - cat.pages.each do |page|
-              p: a href='#' = page.title
-.row.clearfix
-  .menu-shadow
+.row.hidden-sm.hidden-xs
+  table.t-menu: tr
+    td style='width:50px'
+      a href='#'
+        i.fa.fa-home.fa-lg
+    td: a href='#' Сайт Совета депутатов
+    td: a href='#' Сайт аппарата СД
+    td: a href='#' Сайт главы МО
+    td style='width:100px': a#menubtn href='#'
+      ' Меню
+      span.caret
+  #shadow.row.clearfix
+    .menu-shadow
+  #dropmenu
+    .menu-shadow
+    - Category.all.each_with_index do |cat, i|
+      - if (i != 0) && (i % 3).zero?
+        .row
+        hr.hr
+      .col-md-4
+        div.inline
+          i(class='#{cat.icon} fa-lg')
+          h5 = '&nbsp'.html_safe + cat.name
+        br
+        - cat.pages.each do |page|
+            p: a href='#{page_path(page)}' = page.title
+    .clearfix
 

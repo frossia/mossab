@@ -1,2 +1,20 @@
-#box
-  = post.title
+#box.content-panel
+  h4.h-post =' post.title
+  hr.hr-post
+  .t-j
+    = raw post.introtext
+  /- unless post.tags.empty? && post.fulltext.empty?
+  hr.hr-post
+  - unless post.updated_at.nil?
+    i.fa.fa-calendar.light.small
+      '
+      - if post.updated_at.to_date == Date.today
+        span> Сегодня
+      - else
+        span> = I18n.l post.updated_at
+  - unless post.tags.empty?
+    - post.tags.each do |tag|
+      span.label.label-info<> = tag.name
+  - unless post.fulltext.empty?
+    a.btn.btn-success.btn-sm.pull-right href='#{post_url(post)}'Подробнее...
+  .clearfix

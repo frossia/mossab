@@ -24,7 +24,7 @@ categories["data"].each do |cat|
   @c.save
 end
 
-puts 'Added ' + Category.count.to_s + ' categories'
+#puts 'Added ' + Category.count.to_s + ' categories'
 puts Category.first.name
 puts Category.first.icon
 
