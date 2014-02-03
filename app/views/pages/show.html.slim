@@ -17,7 +17,8 @@
         span> Сегодня
       - else
         span> = I18n.l @page.updated_at
-  /- unless @page.tags.empty?
-    - @page.tags.each do |tag|
-      span.label.label-info<> = tag.name
+      - if admin_user_signed_in?
+        hr.hr-post
+        a.btn.btn-danger.btn-xs.pull-right href='#{root_url}admin#{edit_page_path(@page)}'Редактировать
+
   .clearfix

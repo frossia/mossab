@@ -1,6 +1,6 @@
 #posts
   = render :partial => @posts
-= link_to_next_page @posts, 'ЕЩЕ', :remote => true, :id=>"load_more_link", :class=>'btn btn-success btn-lg'
+= link_to_next_page @posts, 'Загрузить еще', :remote => true, :id=>"load_more_link", :class=>'btn btn-success btn-lg'
 /- @posts.each_with_index do |page, i|
 
   h3

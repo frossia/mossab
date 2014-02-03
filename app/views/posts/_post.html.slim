@@ -18,3 +18,7 @@
   - unless post.fulltext.empty?
     a.btn.btn-success.btn-sm.pull-right href='#{post_url(post)}'Подробнее...
   .clearfix
+    - if admin_user_signed_in?
+      hr.hr-post
+      a.btn.btn-danger.btn-xs.pull-right href='admin/#{edit_post_path(post)}'Редактировать
+

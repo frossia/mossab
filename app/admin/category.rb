@@ -4,7 +4,7 @@ ActiveAdmin.register Category do
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  # permit_params :list, :of, :attributes, :on, :model
+  #permit_params :list, :of, :attributes, :on, :model
   #
   # or
   #
@@ -18,7 +18,7 @@ ActiveAdmin.register Category do
     f.inputs "Details" do
       f.input :name
       f.input :icon
-      f.input :posts, :as => :select, :input_html => { :multiple => true }
+      f.input :pages, :as => :select, :input_html => { :multiple => true , :style => 'height: 500px'}
     end
     f.actions
   end

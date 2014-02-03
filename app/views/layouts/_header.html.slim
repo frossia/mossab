@@ -4,11 +4,33 @@ br
     #logo
       = link_to :root
         = image_tag('gerb100.gif')
-  .col-md-6#offset
-    - if admin_user_signed_in?
-      p.t-r
-        b' #{current_admin_user.email}
-        = link_to 'Выйти', destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-xs'
+  .col-md-2.t-c
+    table#timer
+      tr style='vertical-align: middle; height: 93px'
+        td.t-c
+          small#date = getdate
+          p#time
+            span#hours
+            span.dot
+            span#minutes
+            span.dot
+            span#seconds
+  .col-md-4
+    table style='width: 100%;'
+      tr style='vertical-align: middle; height: 93px; width: 100%;'
+        td.t-r
+          /- if admin_user_signed_in?
+            p.t-r
+              small: b' #{current_admin_user.email}
+              = link_to 'Выйти', destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-xs'
+          .btn-group-vertical
+            a.btn.btn-info.t-l
+              i.fa.fa-group>
+              | Обратиться к депутатам
+            a.btn.btn-info.t-l
+              i.fa.fa-building-o>
+              | Онлайн приемная аппарата
+            /a.btn.btn-success asfsag
 
 
 /.menubox
@@ -16,7 +38,7 @@ br
 .row.hidden-sm.hidden-xs
   table.t-menu: tr
     td style='width:50px'
-      a href='#'
+      a href='#{root_path}'
         i.fa.fa-home.fa-lg
     td: a href='#' Сайт Совета депутатов
     td: a href='#' Сайт аппарата СД

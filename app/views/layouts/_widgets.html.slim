@@ -13,20 +13,20 @@
   = image_tag('/uploads/newspaper/attachment/'+@paper.id.to_s+'/thumbnail.png', :class => 'letter letter-' + rand(1..2).to_s, :style => 'height: 250px')
 
 .content-panel
-  h4.h-post Собрания Совета депутатов
+  h5.h-post Собрания Совета депутатов
   hr.hr-post
   - video = Post.all.videos.first
   = video.introtext.html_safe
   div.t-r
     hr.hr-post
-    a href='#{url_for :controller => 'posts', :action => 'videos'}' Архив собраний
+    a href='#{url_for :controller => 'posts', :action => 'videos'}' Видео архив собраний
 
 
 
 
 - @papers = Newspaper.find(:all, :order => "id desc", :limit => 4).reverse
 .content-panel.hidden-sm.hidden-xs
-  h4.h-post Выпуски газеты
+  h5.h-post Выпуски газеты
   hr.hr-post
   ul.bxslider
     - @papers.each do |paper|
