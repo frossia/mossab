@@ -15,8 +15,16 @@
 .content-panel
   h5.h-post Собрания Совета депутатов
   hr.hr-post
-  - video = Post.all.videos.first
-  = video.introtext.html_safe
+  .video-container
+    .spinner
+      .rect1
+      .rect2
+      .rect3
+      .rect4
+      .rect5
+
+    - video = Post.all.videos.first
+    = video.introtext.html_safe
   div.t-r
     hr.hr-post
     a href='#{url_for :controller => 'posts', :action => 'videos'}' Видео архив собраний

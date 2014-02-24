@@ -1,23 +1,31 @@
 #box.content-panel
-  h4.h-post =' post.title
+  table.post-title width='100%'
+    tr vertical-align='middle'
+      td width='80%'
+        h4.h-post =' post.title
+      td.t-r.small
+        - unless post.updated_at.nil?
+          i.fa.fa-calendar.light.small
+            '
+            - if post.updated_at.to_date == Date.today
+              span Сегодня
+            - else
+              span = I18n.l post.updated_at
   hr.hr-post
   .t-j
     = raw post.introtext
   /- unless post.tags.empty? && post.fulltext.empty?
   hr.hr-post
-  - unless post.updated_at.nil?
-    i.fa.fa-calendar.light.small
-      '
-      - if post.updated_at.to_date == Date.today
-        span> Сегодня
-      - else
-        span> = I18n.l post.updated_at
-  - unless post.tags.empty?
-    - post.tags.each do |tag|
-      span.label.label-info<> = tag.name
-  - unless post.fulltext.empty?
-    a.btn.btn-success.btn-sm.pull-right href='#{post_url(post)}'Подробнее...
-  .clearfix
+  table width='100%' vertical-align='middle'
+    tr
+      td
+        - unless post.tags.empty?
+          - post.tags.each do |tag|
+            span.small.label.label-info<> = tag.name
+      td
+        - unless post.fulltext.empty?
+          a.btn.btn-success.btn-sm.pull-right href='#{post_url(post)}'Подробнее...
+  /.clearfix
     - if admin_user_signed_in?
       hr.hr-post
       a.btn.btn-danger.btn-xs.pull-right href='admin/#{edit_post_path(post)}'Редактировать

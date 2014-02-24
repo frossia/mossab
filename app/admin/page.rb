@@ -24,10 +24,9 @@ ActiveAdmin.register Page do
   end
 
   form do |f|
-    f.inputs "Admin Details" do
+    f.inputs do
       f.input :title
       f.input :published
-      f.input :page_attach
       f.input :categories, :as => :select, :input_html => { :multiple => true , :style => 'height: 200px'}
       f.input :introtext, :as => :ckeditor
       f.input :fulltext, :as => :ckeditor, :input_html => { :style => 'height: 500px'}

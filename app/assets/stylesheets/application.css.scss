@@ -100,9 +100,10 @@ a.link {
   p {margin: 0}
   p#time {margin-top: 13px;}
 
-  p#time span {
+  p#time {
     font: normal 11px "Helvetica Neue", Helvetica, sans-serif;
 //    font-weight: bold;
+    text-shadow: 0 1px 1px #000;
     font-size: 2em;
     padding: 5px 5px;
     color: #fff;
@@ -129,9 +130,13 @@ a.link {
   
   p#time span.dot {
     background: none;
-    color: #3f3f3f;
+    color: #fff;
     border: none;
     box-shadow: none;
+    &.hideen {
+      color: #191919;
+    }
+
   }
   
 }
@@ -178,8 +183,11 @@ img {
 }
 
 .label {
-//  text-shadow: 0 -1px 0px #000;
+//  text-shadow: 0 -1px 1px #6b6b6b;
   font-weight: normal;
+  font-size: 75%;
+  letter-spacing: .5;
+  padding: 3px 7px;
 }
 
 .inline > * {
@@ -289,12 +297,16 @@ a#menubtn.hightlight {
 //  @include gradient(#eaebf0, #f8f9ff);
   background: image_url('satinweave.png');
   box-shadow: 0 1px 1px 1px #b3b3b3, inset 0 1px 1px 0 #fff, inset 0 1px 21px 0 rgba(#b3b3b3, .2);
-  padding: 5px 15px 15px 15px;
+  padding: 15px 15px 15px 15px;
   margin: 0 0 15px 0;
   border-radius: 3px;
 
-  h4.h-post {
+  .h-post {
     text-shadow: 0 1px 0 #fff;
+    margin: 0;
+  }
+  
+  .post-title {
   }
 
   .hr-post {
@@ -317,7 +329,78 @@ a#menubtn.hightlight {
   border-bottom: 1px solid #FFFFFF;
 }
 
-.video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; } .video-container iframe, .video-container object, .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.spinner {
+  margin: 70px auto;
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: #333;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  margin: 3px;
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+       transform: scaleY(1.0);
+       -webkit-transform: scaleY(1.0);
+     }
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  border: 1px solid #fff;
+//  background: image_url('bx_loader.gif') no-repeat center center;
+
+
+
+}
+.video-container iframe, .video-container object, .video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 
 

@@ -10,16 +10,18 @@ br
         td.t-c
           small#date = getdate
           p#time
-            span#hours
+            span#hours - -
             span.dot
-            span#minutes
+              |:
+            span#minutes - -
             span.dot
-            span#seconds
+              |:
+            span#seconds - -
   .col-md-4
     table style='width: 100%;'
       tr style='vertical-align: middle; height: 93px; width: 100%;'
         td.t-r
-          /- if admin_user_signed_in?
+          - if admin_user_signed_in?
             p.t-r
               small: b' #{current_admin_user.email}
               = link_to 'Выйти', destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-xs'
@@ -30,11 +32,8 @@ br
             a.btn.btn-info.t-l
               i.fa.fa-building-o>
               | Онлайн приемная аппарата
-            /a.btn.btn-success asfsag
 
 
-/.menubox
-  a href='#' Главная
 .row.hidden-sm.hidden-xs
   table.t-menu: tr
     td style='width:50px'
