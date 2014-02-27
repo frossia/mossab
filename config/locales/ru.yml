@@ -121,3 +121,77 @@ ru:
       hour: "Часов"
       minute: "Минут"
       second: "Секунд"
+
+  activerecord:
+    models:
+      post:
+        one:   "Запись"
+        few:   "записи"
+        many:  "записей"
+        other: "Записи"
+      page:
+        one:   "Страницы"
+        few:   "Страниц"
+        many:  "Страниц"
+        other: "Страницы"
+      newspaper:
+        one:   "Газета"
+        few:   "Газет"
+        many:  "Газет"
+        other: "Газеты"
+      category:
+        one:   "Категория"
+        few:   "Категорий"
+        many:  "Категорий"
+        other: "Категории"
+      admin_user:
+        one:   "Администратор"
+        few:   "Администраторов"
+        many:  "Администраторов"
+        other: "Администраторы"
+    attributes:
+      post:
+        title: "Заголовок"
+        tags: "Тэги"
+        published: "Опубликовано"
+        hot: "Важная запись"
+        end_date: "Дата снятия с публикации"
+        created_at: "Создано"
+        updated_at: "Обновлено"
+        introtext: "Вступительный текст статьи"
+        fulltext: "Полный текст статьи"
+      page:
+        title: "Заголовок"
+        published: "Опубликовано"
+        categories: "Категории"
+        created_at: "Создано"
+        updated_at: "Обновлено"
+        introtext: "Вступительный текст статьи"
+        fulltext: "Полный текст статьи"
+      category:
+        name: "Заголовок"
+        icon: "Иконка"
+        pages: "Страницы"
+        created_at: "Создано"
+        updated_at: "Обновлено"
+      newspaper:
+        title: "Название"
+        attachment: "Прикрепить файл"
+        created_at: "Создано"
+        updated_at: "Обновлено"
+
+
+  devise:
+    sessions:
+      admin_user:
+        signed_in: "Добро пожаловать!"
+        unauthenticated: "Вы не авторизованы! Пожалуйста введите логин и пароль!"
+
+  active_admin:
+    scopes:
+      all: "Все"
+      hot: "Важные"
+      published: "Опубликованные"
+      unpublished: "Не опубликованные"
+      out_of_date: "Истекшие"
+      upcoming: "Предстоящие"

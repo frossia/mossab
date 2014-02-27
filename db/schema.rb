@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140201162924) do
+ActiveRecord::Schema.define(version: 20140227100135) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -81,13 +81,6 @@ ActiveRecord::Schema.define(version: 20140201162924) do
     t.string   "attachment"
   end
 
-  create_table "page_attaches", force: true do |t|
-    t.string   "title"
-    t.string   "file"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pages", force: true do |t|
     t.string   "title"
     t.text     "body"
@@ -96,6 +89,15 @@ ActiveRecord::Schema.define(version: 20140201162924) do
     t.datetime "updated_at"
     t.text     "introtext"
     t.text     "fulltext"
+  end
+
+  create_table "post_images", force: true do |t|
+    t.string   "image_url"
+    t.string   "title"
+    t.string   "text"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|
@@ -107,6 +109,7 @@ ActiveRecord::Schema.define(version: 20140201162924) do
     t.boolean  "hot"
     t.boolean  "published"
     t.date     "end_date"
+    t.string   "intro_post_image"
   end
 
   create_table "posts_tags", force: true do |t|

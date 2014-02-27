@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   layout 'fullpage', :only => :videos
 
   def index
-    @posts = Post.page(params[:page]).per(3)
+    @posts = Post.page(params[:page]).per(3).order('id DESC')
     respond_to :html, :js
   end
 

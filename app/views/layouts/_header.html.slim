@@ -35,16 +35,18 @@ br
 
 
 .row.hidden-sm.hidden-xs
-  table.t-menu: tr
-    td style='width:50px'
-      a href='#{root_path}'
-        i.fa.fa-home.fa-lg
-    td: a href='#' Сайт Совета депутатов
-    td: a href='#' Сайт аппарата СД
-    td: a href='#' Сайт главы МО
-    td style='width:100px': a#menubtn href='#'
-      ' Меню
-      span.caret
+  table.t-menu
+    tr
+      td style='width:50px'
+        a.home-icon href='#{root_path}'
+          i.fa.fa-home.fa-lg
+          ' '
+      td: a href='#' Сайт Совета депутатов
+      td: a href='#' Сайт аппарата СД
+      td: a href='#' Сайт главы МО
+      td style='width:100px': a#menubtn href='#'
+        ' Меню
+        span.caret
   #shadow.row.clearfix
     .menu-shadow
   #dropmenu

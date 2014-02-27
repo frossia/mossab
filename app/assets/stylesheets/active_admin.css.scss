@@ -10,7 +10,6 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
-@import "bootstrap-multiselect";
 
 .cke_top {
   width: 98% !important;
@@ -20,3 +19,14 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+
+.col-published, .col-hot, .col-tags {
+  text-align: center;
+  .status_tag {
+    text-align: center;
+    border-radius: 2px;
+    padding: 3px 4px;
+    text-shadow: 0 1px 1px #808080;
+  }
+}

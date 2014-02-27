@@ -1,2 +1,2 @@
 $('#posts').append("<%= escape_javascript(render :partial => @posts)%>");
-$('#load_more_link').replaceWith("<%= escape_javascript(link_to_next_page(@posts, 'ЕЩЕ', :remote => true, :id=>'load_more_link', :class=>'btn btn-success btn-lg'))%>");
+$('#load_more_link').replaceWith("<%= escape_javascript(link_to_next_page(@posts, 'Загрузить еще', :remote => true, :id=>"load_more_link", :class=>'btn btn-default btn-lg'))%>");

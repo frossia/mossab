@@ -113,6 +113,7 @@ GEM
     mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.8.4)
+    nested_form (0.3.2)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     nokogiri (1.6.1-x86-mingw32)
@@ -209,10 +210,12 @@ DEPENDENCIES
   ckeditor
   coffee-rails (~> 4.0.0)
   devise
+  formtastic
   jbuilder (~> 1.2)
   jquery-rails
   meta_request
   mini_magick
+  nested_form
   nokogiri
   protected_attributes
   rails (= 4.0.2)

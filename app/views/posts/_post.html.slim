@@ -1,32 +1,35 @@
 #box.content-panel
-  table.post-title width='100%'
-    tr vertical-align='middle'
-      td width='80%'
-        h4.h-post =' post.title
-      td.t-r.small
-        - unless post.updated_at.nil?
-          i.fa.fa-calendar.light.small
-            '
-            - if post.updated_at.to_date == Date.today
-              span Сегодня
-            - else
-              span = I18n.l post.updated_at
+
+
+  = render partial: 'posts/post_title', :locals => { :post => post }
   hr.hr-post
-  .t-j
+
+  - if post.intro_post_image.blank?
     = raw post.introtext
-  /- unless post.tags.empty? && post.fulltext.empty?
-  hr.hr-post
-  table width='100%' vertical-align='middle'
-    tr
-      td
-        - unless post.tags.empty?
-          - post.tags.each do |tag|
-            span.small.label.label-info<> = tag.name
-      td
-        - unless post.fulltext.empty?
-          a.btn.btn-success.btn-sm.pull-right href='#{post_url(post)}'Подробнее...
-  /.clearfix
-    - if admin_user_signed_in?
+  - else
+    table width='100%'  cellpadding='10px'
+      tr vertical-align='top'
+        td width='30%'
+          - if post.fulltext.empty?
+            = image_tag(post.intro_post_image, :class => 'intro_image')
+          - else
+            a href='#{post_url(post)}'
+              = image_tag(post.intro_post_image, :class => 'intro_image')
+        td.t-j width='70%'
+          = raw post.introtext
+  - unless post.tags.empty? && post.fulltext.empty?
+    hr.hr-post
+    table width='100%' vertical-align='middle'
+      tr
+        td
+          - unless post.tags.empty?
+            - post.tags.each do |tag|
+              span.small.label.label-info<> = tag.name
+        td
+          - unless post.fulltext.empty?
+            a.btn.btn-success.btn-sm.pull-right href='#{post_url(post)}'Подробнее...
+  - if admin_user_signed_in?
+    .clearfix
       hr.hr-post
       a.btn.btn-danger.btn-xs.pull-right href='admin/#{edit_post_path(post)}'Редактировать
 

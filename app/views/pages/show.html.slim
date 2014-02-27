@@ -1,9 +1,6 @@
 #box.content-panel
   /= link_to ('<i class="fa fa-arrow-left"></i> ').html_safe + 'Назад', posts_path, :class => 'btn btn-default btn-xs pull-left', :style => 'margin: 10px 10px 10px 0;'
-  a.btn.btn-default.btn-xs.pull-left.hidden-xs style='margin: 10px 10px 10px 0;' href='#{posts_path}'
-    i.fa.fa-chevron-left>
-    | Назад
-  h4.h-post.pull-left =' @page.title
+  h4.h-post = @page.title
   hr.hr-post
   .t-j
     = raw @page.introtext

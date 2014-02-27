@@ -13,8 +13,14 @@
  *= stub active_admin
  */
 
+table {
+  font-size: 100%;
+  font: inherit;
+}
+
 @import "bourbon";
 @import 'bootstrap';
+@import "texture-mixin";
 
 @mixin transition($transition-property, $transition-time, $method) {
   -webkit-transition: $transition-property $transition-time $method;
@@ -216,6 +222,14 @@ img {
     border-radius: 0 5px 5px 0;
     border-right: 1px solid #fca612;
   }
+
+  .home-icon {
+//    height: 40px;
+    font-size: 14px;
+    line-height: 20px;
+//    margin: 1px 0 0 0;
+  }
+
   a {
     i {
       padding: 1px 0 2px 0;
@@ -293,6 +307,15 @@ a#menubtn.hightlight {
   }
 }
 
+.slider-panel {
+//  @include texture(#90cdcd, 75, 1);
+  background: image_url('pattern-27el.png');
+  box-shadow: 0 1px 1px 1px #b3b3b3, inset 0 1px 1px 0 #fff, inset 0 1px 21px 0 rgba(#b3b3b3, .2);
+  padding: 15px 15px 15px 15px;
+  margin: 0 0 15px 0;
+  border-radius: 3px;
+}
+
 .content-panel {
 //  @include gradient(#eaebf0, #f8f9ff);
   background: image_url('satinweave.png');
@@ -317,6 +340,26 @@ a#menubtn.hightlight {
     border-bottom: 1px solid #FFFFFF;
     margin-left: -15px;
     margin-right: -15px;
+  }
+
+  .fa.fa-bolt {
+    color: #d9534f;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #ffffff;
+  }
+
+  .intro_image {
+    margin: 0 15px 0 0;
+    padding: 5px;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: inset 0 0 5px #444444;
+    border-bottom: 2px solid #ffffff;
+    @include transition(all, 0.3s, ease-in-out);
+  }
+  
+  a .intro_image:hover {
+    background: #d9f5ff;
   }
 
 }

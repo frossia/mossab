@@ -50,6 +50,8 @@ gem 'devise'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+gem 'formtastic'
+
 gem 'ckeditor'
 
 gem 'carrierwave'
@@ -57,6 +59,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'bourbon'
+
+gem 'nested_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
