@@ -3,12 +3,12 @@ table.post-title width='100%'
     td width='80%'
       h4.h-post =' post.title
     td.t-r.small
-      - unless post.updated_at.nil?
+      - unless post.created_at.nil?
         - if post.created_at.to_date == Date.today
-          i.fa.fa-bolt.light.small
-            '
-            span Сегодня
+          i.fa.fa-bolt.light
+          '
+          span> Сегодня
         - else
-          i.fa.fa-calendar.light.small
-            '
-            span> = I18n.l post.updated_at
+          i.fa.fa-calendar.light
+          '
+          span.light> = I18n.l post.created_at

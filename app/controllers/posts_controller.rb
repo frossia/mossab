@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   layout 'fullpage', :only => :videos
 
   def index
-    @posts = Post.page(params[:page]).per(3).order('id DESC')
+    @posts = Post.published_and_not_hot.page(params[:page]).per(3).order('created_at DESC')
     respond_to :html, :js
   end
 
@@ -13,7 +13,11 @@ class PostsController < ApplicationController
   end
 
   def videos
-    @videos = Post.videos
+  end
+
+
+  def calendar
+    @postzzz = Post.all.order('created_at DESC')
   end
 
 end

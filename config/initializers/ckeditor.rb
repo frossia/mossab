@@ -23,4 +23,6 @@ Ckeditor.setup do |config|
 
   # Paginate assets
   # config.default_per_page = 24
+
+
 end

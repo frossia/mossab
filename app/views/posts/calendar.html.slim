@@ -1,0 +1,10 @@
+- start_date = @postzzz.first.created_at
+- @postzzz.each_with_index do |post, index|
+  - unless post.post_images.empty?
+    - if start_date.to_date.strftime("%B") != post.created_at.to_date.strftime("%B")
+      - start_date = post.created_at.strftime("%B")
+      h1 = I18n.l post.created_at.to_date, format: :month
+    - elsif index < 1
+      h1 = I18n.l start_date.to_date, format: :month
+
+    p = post.title

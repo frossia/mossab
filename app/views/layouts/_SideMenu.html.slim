@@ -1,34 +1,13 @@
-h2.icon.icon-stack Sidebar
-ul
-  li
-    a.icon.icon-data href="#" 123
-  li
-    a.icon.icon-location href="#"  123
-  li
-    a.icon.icon-study href="#"  123
-  li
-    a.icon.icon-photo href="#"  123
-  li
-    a.icon.icon-wallet href="#"123
-  li
-    a.icon.icon-wallet href="#" 123
-  li
-    a.icon.icon-wallet href="#" 123
-  li
-    a.icon.icon-wallet href="#" 123
-  li
-    a.icon.icon-wallet href="#"  123
-  li
-    a.icon.icon-wallet href="#" 123
-  li
-    a.icon.icon-wallet href="#"  123
-  li
-    a.icon.icon-wallet href="#"  123
-  li
-    a.icon.icon-wallet href="#" 123
-  li
-    a.icon.icon-wallet href="#"  123
-  li
-    a.icon.icon-wallet href="#"   123
-  li
-    a.icon.icon-wallet href="#"  123
+- Category.all.each_with_index do |cat, i|
+
+  .col-md-4
+    .inline.cat-header
+      i(class='#{cat.icon} fa-lg')
+      h5 = '&nbsp'.html_safe + cat.name
+    br
+    - cat.pages.each_with_index do |page, i|
+      a.menu-item href='#{page_path(page)}' = page.title
+      - if (i < cat.pages.count-1)
+        hr.menu
+.clearfix
+br

@@ -62,6 +62,10 @@ gem 'bourbon'
 
 gem 'nested_form'
 
+gem 'fancybox2-rails'
+
+gem 'youtube_it'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

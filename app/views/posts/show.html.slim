@@ -7,16 +7,27 @@
     = raw @post.introtext
     = raw @post.fulltext
   /- unless post.tags.empty? && post.fulltext.empty?
-  hr.hr-post
 
-  h4 Images
-  - @post.post_images.each do |image|
-    = image.image_url
-    = image_tag(image.image_url)
+  - unless @post.post_images.blank?
+    hr.hr-post
+    .row
+      - @post.post_images.each_with_index do |n,i|
+        /- if (i != 0) && (i % 3).zero?
+          .row
+        #post-image.col-md-4.col-xs-6.t-c
+          a.group.thumbnail href='#{n.image_url}' rel="group" data-thumbnail='#{n.image_url}'
+            = image_tag(n.image_url)
+    .clearfix
 
-  hr.hr-post
 
   - unless @post.tags.empty?
+    hr.hr-post
     - @post.tags.each do |tag|
       span.label.label-info<> = tag.name
-  .clearfix
+    .clearfix
+
+
+  - if admin_user_signed_in?
+    hr.hr-post
+    a.btn.btn-danger.btn-xs.pull-right href='#{edit_admin_post_url(@post)}'Редактировать
+    .clearfix

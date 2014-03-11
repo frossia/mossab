@@ -4,10 +4,24 @@ br
     #logo
       = link_to :root
         = image_tag('gerb100.gif')
-  .col-md-2.t-c
-    table#timer
-      tr style='vertical-align: middle; height: 93px'
-        td.t-c
+  /.col-md-2.t-c
+    table
+      #timer
+        tr style='vertical-align: middle; height: 93px'
+          td.t-c
+            small#date = getdate
+            p#time
+              span#hours - -
+              span.dot
+                |:
+              span#minutes - -
+              span.dot
+                |:
+              span#seconds - -
+  .col-md-6
+    table.pull-right.hidden-sm.hidden-xs width='100%'
+      tr style='vertical-align: middle; height: 93px; width: 100%; '
+        /td.t-c
           small#date = getdate
           p#time
             span#hours - -
@@ -17,15 +31,24 @@ br
             span.dot
               |:
             span#seconds - -
-  .col-md-4
-    table style='width: 100%;'
-      tr style='vertical-align: middle; height: 93px; width: 100%;'
-        td.t-r
+        td.t-l
+          a.link href='#' style='display: block; width: 200px; border-bottom: none'
+            h4.times_new_roman style='margin: 3px 4px;'
+              i.fa.fa-phone>
+              | +7 (499) 782-88-12
+        td.t-r width='auto'
           - if admin_user_signed_in?
             p.t-r
-              small: b' #{current_admin_user.email}
-              = link_to 'Выйти', destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-xs'
+              .small
+                b' #{current_admin_user.email}
+                span = link_to 'Выйти', destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-xs'
+          /.t-r
+            h4.times_new_roman
+              small +7 (499)
+              | 782-88-12
           .btn-group-vertical
+            /a.btn.btn-info.hidden-xs
+              h4.times_new_roman  +7 (499) 782-88-12
             a.btn.btn-info.t-l
               i.fa.fa-group>
               | Обратиться к депутатам
@@ -35,32 +58,60 @@ br
 
 
 .row.hidden-sm.hidden-xs
-  table.t-menu
-    tr
-      td style='width:50px'
-        a.home-icon href='#{root_path}'
-          i.fa.fa-home.fa-lg
-          ' '
-      td: a href='#' Сайт Совета депутатов
-      td: a href='#' Сайт аппарата СД
-      td: a href='#' Сайт главы МО
-      td style='width:100px': a#menubtn href='#'
-        ' Меню
-        span.caret
-  #shadow.row.clearfix
-    .menu-shadow
-  #dropmenu
-    .menu-shadow
-    - Category.all.each_with_index do |cat, i|
-      - if (i != 0) && (i % 3).zero?
-        .row
-        hr.hr
-      .col-md-4
-        div.inline
-          i(class='#{cat.icon} fa-lg')
-          h5 = '&nbsp'.html_safe + cat.name
-        br
-        - cat.pages.each do |page|
-            p: a href='#{page_path(page)}' = page.title
-    .clearfix
+  .col-md-12
+    table.t-menu
+      tr
+        td style='width:50px'
+          a.home-icon href='#{root_path}'
+            i.fa.fa-home.fa-lg
+            '.
+        td
+          ul
+            li
+              a#link href='#' Сайт Совета депутатов
+              ul
+                - pages = Category.find(2).pages
+                - pages.each do |page|
+                  li: a href='#{url_for(page)}' = page.title
+        td
+          ul
+            li
+              a#link href='#' Сайт аппарата СД
+              ul
+                - pages = Category.find(3).pages
+                - pages.each do |page|
+                  li: a href='#{url_for(page)}' = page.title
+        td
+          ul
+            li
+              a#link href='#' Сайт главы МО
+              ul
+                - pages = Category.find(4).pages
+                - pages.each do |page|
+                  li: a href='#{url_for(page)}' = page.title
+        td style='width:100px': a#menubtn href='#'
+          ' Меню
+          span.caret
+    #shadow.row.clearfix
+      .menu-shadow
+    #dropmenu
+      .menu-shadow
+      - Category.published_cats.each_with_index do |cat, i|
+        - if (i != 0) && (i % 3).zero?
+          .clearfix
+          hr.hr
+        .col-md-4
+          div.inline
+            i(class='#{cat.icon} fa-lg')
+            h5 = '&nbsp'.html_safe + cat.name
+          br
+          - cat.pages.each_with_index do |page, i|
+            - if page.published
+              a.menu-item href='#{page_path(page)}' = page.title
+              - if i < cat.pages.count - 1
+                hr.menu
+            - else
+              - i = i - 1
+      .clearfix
+      br
 

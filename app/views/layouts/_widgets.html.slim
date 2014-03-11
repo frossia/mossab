@@ -23,17 +23,17 @@
       .rect4
       .rect5
 
-    - video = Post.all.videos.first
-    = video.introtext.html_safe
+    - video = @client.videos.first
+    = raw video.embed_html5({:frameborder => '0'})
   div.t-r
     hr.hr-post
-    a href='#{url_for :controller => 'posts', :action => 'videos'}' Видео архив собраний
+    a.link href='#{url_for :controller => 'posts', :action => 'videos'}' Видеоархив собраний СД
 
 
 
 
 - @papers = Newspaper.find(:all, :order => "id desc", :limit => 4).reverse
-.content-panel.hidden-sm.hidden-xs
+.content-panel
   h5.h-post Выпуски газеты
   hr.hr-post
   ul.bxslider

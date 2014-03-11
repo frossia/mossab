@@ -1,0 +1,25 @@
+#footer
+  .container
+    .row
+      .t-c-small.col-md-6.t-c
+        .btn-group-vertical.visible-sm.visible-xs
+          a.btn.btn-default href='#{url_for :controller => 'posts', :action => 'videos'}'
+            i.fa.fa-video-camera>
+            | Видеоархив собраний СД
+          a.btn.btn-default href='#{newspapers_path}'
+            i.fa.fa-inbox>
+            | Все выпуски газеты
+          a.btn.btn-default
+            i.fa.fa-group>
+            | Обратиться к депутатам
+          a.btn.btn-default
+            i.fa.fa-building-o>
+            | Онлайн приемная аппарата
+      .t-c-small.col-md-6.t-r
+        h4
+          small> Телефон/Факс:
+          | +7 (499) 782-88-12
+        small 115522, г. Москва, Пролетарский проспект, д.7
+        p: small
+          ' E-mail:
+          a href='mailto:munc@bk.ru' munc@bk.ru

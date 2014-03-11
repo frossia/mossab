@@ -14,6 +14,7 @@ Mossab::Application.routes.draw do
   resources :posts do
     collection do
       get 'videos'
+      get 'calendar'
     end
   end
   #get 'posts#videos'

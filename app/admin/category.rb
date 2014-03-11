@@ -16,7 +16,9 @@ ActiveAdmin.register Category do
 
   form do |f|
     f.inputs "Details" do
+      f.input :id
       f.input :name
+      f.input :published
       f.input :icon
       f.input :pages, :as => :select, :input_html => { :multiple => true , :style => 'height: 500px'}
     end

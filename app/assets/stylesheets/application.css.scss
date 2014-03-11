@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require fancybox
  *= require_tree .
  *= stub active_admin
  */
@@ -93,18 +94,14 @@ html, body {height:100%;overflow:auto}
   background: image-url('1300.jpg') no-repeat top center;
 }
 
-a.link {
-//  @extend .btn;
-  border-bottom: 1px dashed #48a770;
-  @include transition(all, 0.3s, ease-in-out);
-  &:hover {
-//    @extend .btn, .btn-warning;
-  }
-}
 
 #timer {
   p {margin: 0}
   p#time {margin-top: 13px;}
+  small#date {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 
   p#time {
     font: normal 11px "Helvetica Neue", Helvetica, sans-serif;
@@ -158,7 +155,14 @@ a.link {
   box-shadow: 0px 1px 30px #5E5E5E;
   position: static;
   top:0px;
-  background: #e67e22;
+  @include linear-gradient(to top, #fca612, #ffe11f);
+  text-decoration: none;
+  text-shadow: 0 1px 1px #fff;
+  color: #111;
+  border-right: 1px solid #ffe11f;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #b0710e;
+  border-left: 1px solid #fca612;
   overflow: visible !important;
   -webkit-backface-visibility:hidden; -webkit-transform: translateZ(0);
   #menu_btn {
@@ -205,6 +209,10 @@ img {
 //  width: 400px;
 }
 
+h3.times_new_roman {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 //###################  MENU  #########################
 
 .t-menu {
@@ -213,7 +221,6 @@ img {
   margin: 20px 0 0 0;
   td {
     padding: 0 0 0 0;
-//    height: 50px;
   }
   & tr td:first-child a {
     border-radius: 5px 0 0 5px;
@@ -230,10 +237,40 @@ img {
 //    margin: 1px 0 0 0;
   }
 
-  a {
-    i {
-      padding: 1px 0 2px 0;
+  td ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    ul {
+      display: none;
     }
+  }
+
+  ul li:hover {
+    @include linear-gradient(to top, #fca612, #ffe11f);
+
+    > ul {
+      display: block;
+      z-index: 9999;
+      background: image_url('satinweave.png');
+      text-shadow: 0 2px 1px #fff;
+      text-align: left;
+      border: 1px solid #B3B3B3;
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 0 1px 6px 0px #9c9c9c, inset 0 1px 70px 0 #fff, inset 0 1px 121px 0 rgba(#fff, 1);
+
+      li {
+        a {
+          background: none;
+          border: none;
+        }
+        padding: 0 10px;
+      }
+    }
+}
+
+  a {
     @include linear-gradient(to top, #fca612, #ffe11f);
 //    @include gradient(#ffe11f, #fca612);
     text-decoration: none;
@@ -250,10 +287,47 @@ img {
     width: 100%;
     padding: 9px;
 
+    + ul {
+      display: none;
+      position: absolute;
+    }
 
     &:hover {
       @include gradient(#ffee00, #fca612);
     }
+
+    &:hover + ul {
+      display: block;
+      z-index: 9999;
+    }
+  }
+
+}
+
+hr.menu {
+  border-top: none;
+  border-bottom: 1px dashed #C1C1C1;
+  margin: 0;
+}
+
+a.menu-item {
+  padding: 4px 5px;;
+  display: block;
+  border: 1px solid transparent;
+  color: #757575;
+  @include transition(all, 0.1s, ease-in-out);
+  &:hover {
+    @include linear-gradient(to top, #fab74b, #ffe552);
+    color: #444444;
+    text-decoration: none;
+    padding: 4px 7px;
+    text-shadow: 0 1px 1px #fff;
+    border-radius: 5px;
+    border-bottom: 1px solid #C87B00;
+    border-left: 1px solid #fab74b;
+    border-right: 1px solid #fab74b;
+    border-top: 1px solid #FFFFFF;
+    box-shadow: 0 0px 6px 0px #9c9c9c;
   }
 }
 
@@ -298,14 +372,14 @@ a#menubtn.hightlight {
 
 //###################  CONTENT  #########################
 
-#content-row {
-  .col-md-8 {
-    padding-left: 0;
-  }
-  .col-md-4 {
-    padding-right: 0;
-  }
-}
+//#content-row {
+//  #main-content {
+//    padding-left: 0;
+//  }
+//  #widgets {
+//    padding-right: 0;
+//  }
+//}
 
 .slider-panel {
 //  @include texture(#90cdcd, 75, 1);
@@ -314,6 +388,7 @@ a#menubtn.hightlight {
   padding: 15px 15px 15px 15px;
   margin: 0 0 15px 0;
   border-radius: 3px;
+  margin: 0 0 40px 0;
 }
 
 .content-panel {
@@ -332,7 +407,7 @@ a#menubtn.hightlight {
   .post-title {
   }
 
-  .hr-post {
+  .hr-post, hr {
     margin-top: 14px;
     margin-bottom: 14px;
     border: 1;
@@ -348,8 +423,16 @@ a#menubtn.hightlight {
     text-shadow: 0 1px 1px #ffffff;
   }
 
+  img {
+    padding: 5px;
+    border-radius: 3px;
+    background: #fff;
+    box-shadow: inset 0 0 2px #444444;
+    border-bottom: 2px solid #ffffff;
+  }
+
   .intro_image {
-    margin: 0 15px 0 0;
+//    margin: 0 15px 0 0;
     padding: 5px;
     border-radius: 4px;
     background: #fff;
@@ -359,8 +442,10 @@ a#menubtn.hightlight {
   }
   
   a .intro_image:hover {
-    background: #d9f5ff;
+    background: #EBFDFF;
   }
+
+
 
 }
 
@@ -443,6 +528,21 @@ a#menubtn.hightlight {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+img[style*="float:left"] {
+  margin-right: 10px;
+}
+
+img[style*="float:right"] {
+  margin-left: 10px;
+}
+
+.bg-warning {
+  padding: 5px;
+  background: #f2dede;
+  border-radius: 5px;
+  border-left: 7px solid #f08686;
 }
 
 
@@ -532,6 +632,30 @@ a#menubtn.hightlight {
 
 }
 
+a.link {
+  padding: 2px 1px;
+  margin: 0 7px;
+  border: 1px solid transparent;
+  border-bottom: 1px dashed #757575;
+  color: #757575;
+  text-shadow: 0 2px 0px #fff;
+  @include transition(all, 0.1s, ease-in-out);
+  &:hover {
+    @include linear-gradient(to top, #fab74b, #ffe552);
+    color: #444444;
+    text-decoration: none;
+    padding: 4px 7px;
+    margin: 0;
+    text-shadow: 0 1px 1px #fff;
+    border-radius: 15px;
+    border-bottom: 1px solid #C87B00;
+    border-left: 1px solid #fab74b;
+    border-right: 1px solid #fab74b;
+    border-top: 1px solid #FFFFFF;
+    box-shadow: 0 0px 6px 0px #9c9c9c;
+  }
+}
+
 //###################  NEWSPAPER  #########################
 
 //###################  FOOTER  #########################
@@ -539,13 +663,14 @@ a#menubtn.hightlight {
 #footer {
   margin: 15px 0 0 0;
   background: image_url('dark_fish_skin.png');
-  padding: 0 10px 10px 10px;
-  border-top: 2px solid #2E2F30;
-  color: #fff
+  border-top: 2px solid #fff;
+  color: #fff;
+  .container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 }
 
 //###################  FOOTER  #########################
-
-
 
 

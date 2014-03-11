@@ -33,24 +33,16 @@ html
             .container
               = render 'layouts/header'
 
-              #content-row.row
-                .col-md-8
-                  = render 'layouts/slider'
-                  = yield
-                .col-md-4
-                  = render 'layouts/widgets'
-
-            #footer
-              .container
+              #content-row
                 .row
-                  .menu-shadow
-                  small Copyright
-                  br
-                  small Copyright
-                  br
-                  small Copyright
-                  br
-                  small Copyright
+                  #main-content.col-md-8
+                    - if current_page?(root_url)
+                      = render 'layouts/slider'
+                    = yield
+                  #widgets.col-md-4.hidden-sm.hidden-xs
+                    = render 'layouts/widgets'
+
+            = render 'layouts/footer'
 
     = javascript_include_tag "sidebarEffects.js"
 

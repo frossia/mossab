@@ -5,18 +5,21 @@
   hr.hr-post
 
   - if post.intro_post_image.blank?
-    = raw post.introtext
+    - if post.is_meeting
+      .video-container
+        = raw post.introtext
+    - else
+      = raw post.introtext
   - else
-    table width='100%'  cellpadding='10px'
-      tr vertical-align='top'
-        td width='30%'
-          - if post.fulltext.empty?
+    .row
+      .col-md-4.t-c
+        - if post.fulltext.empty?
+          = image_tag(post.intro_post_image, :class => 'intro_image')
+        - else
+          a href='#{post_url(post)}'
             = image_tag(post.intro_post_image, :class => 'intro_image')
-          - else
-            a href='#{post_url(post)}'
-              = image_tag(post.intro_post_image, :class => 'intro_image')
-        td.t-j width='70%'
-          = raw post.introtext
+      .col-md-8.t-j
+        = raw post.introtext
   - unless post.tags.empty? && post.fulltext.empty?
     hr.hr-post
     table width='100%' vertical-align='middle'

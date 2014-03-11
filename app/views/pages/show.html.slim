@@ -1,21 +1,12 @@
 #box.content-panel
-  /= link_to ('<i class="fa fa-arrow-left"></i> ').html_safe + 'Назад', posts_path, :class => 'btn btn-default btn-xs pull-left', :style => 'margin: 10px 10px 10px 0;'
   h4.h-post = @page.title
   hr.hr-post
   .t-j
     = raw @page.introtext
     = raw @page.fulltext
-  /- unless post.tags.empty? && post.fulltext.empty?
-  hr.hr-post
-  - unless @page.updated_at.nil?
-    i.fa.fa-calendar.light.small
-      '
-      - if @page.updated_at.to_date == Date.today
-        span> Сегодня
-      - else
-        span> = I18n.l @page.updated_at
-      - if admin_user_signed_in?
-        hr.hr-post
-        a.btn.btn-danger.btn-xs.pull-right href='#{root_url}admin#{edit_page_path(@page)}'Редактировать
+
+  - if admin_user_signed_in?
+    hr.hr-post
+    a.btn.btn-danger.btn-xs.pull-right href='#{root_url}admin#{edit_page_path(@page)}'Редактировать
 
   .clearfix

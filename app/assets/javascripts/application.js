@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require fancybox
 //= require_tree .
 
 
@@ -98,5 +99,42 @@ $(document).ready(function(){
         hideControlOnEnd: true,
         pager: false
     });
+
+    var slider = $('.main-slider').bxSlider({
+        adaptiveHeight: true,
+        easing: 'ease',
+        nextSelector: '#slider-next',
+        prevSelector: '#slider-prev',
+        pager: true,
+        autoHover: true
+    });
+
+    $("a.group")
+        .attr('rel', 'gallery')
+        .fancybox({
+
+            helpers: {
+                thumbs: {
+                    width  : 60,
+                    height : 60,
+                    source  : function(current) {
+                        return $(current.element).data('thumbnail');
+                    }
+                }
+            },
+
+            openEffect	:	'elastic',
+            closeEffect	:	'elastic',
+            nextEffect  :  'elastic',
+            loop        : false,
+            nextSpeed		:	300,
+            prevSpeed		:	300,
+            'scrolling'        :   'visible',
+            closeBtn		: false,
+            mouseWheel : true,
+            'overlayShow'	:	true
+    });
+
+
 });
 

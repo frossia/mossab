@@ -1,17 +1,18 @@
 ActiveAdmin.register Post do
 
+  config.sort_order = "created_at_desc"
 
-  #permit_params :title, :published, :introtext, :fulltext, :created_at, :tags, :tag_ids
+  actions :all, :except => [:show]
 
   scope :all, :default => true
-  scope :hot do |tasks|
-    tasks.where('hot = ?', true)
-  end
-  scope :published do |tasks|
-    tasks.where('published = ?', true)
-  end
+  #scope :published do |tasks|
+  #  tasks.where('published = ?', true)
+  #end
   scope :unpublished do |tasks|
     tasks.where('published = ?', false)
+  end
+  scope :hot do |tasks|
+    tasks.where('hot = ?', true)
   end
   scope :out_of_date do |tasks|
     tasks.where('end_date < ?', Date.today)
@@ -24,6 +25,7 @@ ActiveAdmin.register Post do
     selectable_column
 
     column :id
+    column :created_at
     column :title
     column :tags do |post|
       post.tags.map { |p| status_tag(p.name, :warn) }.join(' ')
@@ -40,18 +42,26 @@ ActiveAdmin.register Post do
   end
 
   form(:html => { :multipart => true }) do |f|
+    #panel 'UUU' do
+    #  table_for(post.post_images) do
+    #    column :image_url
+    #  end
+    #end
     f.inputs "Admin Details" do
       f.input :title
-      f.has_many :post_images do |img|
-        img.input :title
-        img.input :image_url, :as => :file
-        #, :hint => f.template.image_tag(f.object.image.url, :height => '100px')
-      end
-      f.input :intro_post_image, :as => :file, :hint => f.template.image_tag(f.object.intro_post_image.url, :height => '100px')
+      f.input :post_images_attributes, as: :file, input_html: { multiple: true, :name => 'post[post_images_attributes][][image_url]'}
+      #f.input :_destroy, as: :boolean
+      #f.has_many :post_images do |img|
+      #  img.input :image_url, :as => :file, :hint => f.template.image_tag(img.object.image_url, :style => 'max-height: 100px')
+      #  img.input :_destroy, :as => :boolean
+      #end
+
+      f.input :intro_post_image, :as => :file, :hint => f.template.image_tag(f.object.intro_post_image.url, :style => 'max-height: 100px')
+      f.input :remove_intro_post_image, as: :boolean
       f.input :tags, :as => :check_boxes
       f.input :published, :as => :boolean
       f.input :hot
-      f.input :end_date, :as => :date_picker, :hint => "Created automatically if left blank"
+      f.input :end_date, :as => :date_picker, :hint => "Автоматически снять запись с публикации в указанную дату"
       f.input :created_at, :as => :date_picker
       f.input :introtext, :as => :ckeditor
       f.input :fulltext, :as => :ckeditor

@@ -1,2 +1,17 @@
-#box.slider-panel
-  h1 SLIDER
+- posts = Post.all.hot
+- unless Post.all.hot.blank?
+  #box.slider-panel.hidden-sm.hidden-xs
+    ul.main-slider
+      - posts.each do |post|
+        li
+          - unless post.intro_post_image.blank?
+            .row
+              .col-md-4
+                = image_tag(post.intro_post_image)
+              .col-md-8
+                h4 = post.title
+                = raw post.introtext
+          - else
+            h4 = post.title
+            .t-j
+              = raw post.introtext
