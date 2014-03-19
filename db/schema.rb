@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311172238) do
+ActiveRecord::Schema.define(version: 20140316190008) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -82,6 +82,14 @@ ActiveRecord::Schema.define(version: 20140311172238) do
     t.string   "attachment"
   end
 
+  create_table "page_attaches", force: true do |t|
+    t.string   "url"
+    t.string   "title"
+    t.integer  "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pages", force: true do |t|
     t.string   "title"
     t.text     "body"
@@ -120,6 +128,25 @@ ActiveRecord::Schema.define(version: 20140311172238) do
 
   add_index "posts_tags", ["post_id"], name: "index_posts_tags_on_post_id"
   add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id"
+
+  create_table "receptions", force: true do |t|
+    t.string   "fio"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "theme"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "simple_captcha_data", force: true do |t|
+    t.string   "key",        limit: 40
+    t.string   "value",      limit: 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "simple_captcha_data", ["key"], name: "idx_key"
 
   create_table "tags", force: true do |t|
     t.string "name"

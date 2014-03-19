@@ -3,15 +3,17 @@
   #box.slider-panel.hidden-sm.hidden-xs
     ul.main-slider
       - posts.each do |post|
-        li
+        li#li-slide
           - unless post.intro_post_image.blank?
+            h4 = post.title
+            hr.post
             .row
               .col-md-4
                 = image_tag(post.intro_post_image)
               .col-md-8
-                h4 = post.title
                 = raw post.introtext
           - else
             h4 = post.title
+            hr.slider
             .t-j
               = raw post.introtext

@@ -248,8 +248,8 @@ h3.times_new_roman {
 
   ul li:hover {
     @include linear-gradient(to top, #fca612, #ffe11f);
-
     > ul {
+      @include transition(all, 0.3s, ease-in-out);
       display: block;
       z-index: 9999;
       background: image_url('satinweave.png');
@@ -539,13 +539,91 @@ img[style*="float:right"] {
 }
 
 .bg-warning {
-  padding: 5px;
+  padding: 10px;
   background: #f2dede;
   border-radius: 5px;
   border-left: 7px solid #f08686;
 }
 
+.bg-success {
+  padding: 10px;
+  background: #CBF7D3;
+  border-radius: 5px;
+  border-left: 7px solid #a6f07e;
+}
 
+.main-slider h4 {
+  margin-top: 2px;
+}
+
+hr.slider {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  border: 1;
+  border-top: 1px solid #BDC6D0;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.file-panel {
+
+  margin: -15px -15px;
+
+  table {
+    margin-bottom: 0;
+    tr {
+      padding: 0 5px;
+      td {
+        padding: 8px 20px;
+      }
+    }
+  }
+
+  tr:first-child td {
+    border-top: none;
+  }
+  
+  tr:hover td {
+    background: #fff;
+  }
+
+  a {
+    font-size: 1.1em;
+  }
+
+  a[href$=".doc"][data='down'], a[href$=".docx"][data='down'] {
+    display: block;
+    width: 45px;
+    height: 45px;
+    background: image_url('word.png') no-repeat 50% 50%;
+    @include transition(all, 0.3s, ease-in-out);
+    &:hover {
+      border-radius: 4px;
+      background: #FBBF5F image_url('word.png') no-repeat 50% 50%;
+    }
+  }
+
+  a[href$=".pdf"][data='down'] {
+    display: block;
+    width: 45px;
+    height: 45px;
+    background: image_url('pdf.png') no-repeat 50% 50%;
+    @include transition(all, 0.3s, ease-in-out);
+    &:hover {
+      border-radius: 4px;
+      background: #FBBF5F image_url('pdf.png') no-repeat 50% 50%;
+    }
+  }
+
+}
+
+
+.form-group {
+//  margin-bottom: 50px;
+//  height: 50px;
+//  textarea {
+//    height: 100px;
+//  }
+}
 
 //###################  CONTENT  #########################
 

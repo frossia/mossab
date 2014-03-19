@@ -67,7 +67,11 @@
 #  end
 #end
 
-c = Category.all
-c.each do |cat|
-  cat.update_attributes(:published => true)
-end
+#c = Category.all
+#c.each do |cat|
+#  cat.update_attributes(:published => true)
+#end
+
+file = File.read('tmp/programm.doc')
+puts file.bytesize
+query =

@@ -1,0 +1,55 @@
+#box.content-panel
+  h4.h-post Отправить сообщение в аппарат Совета депутатов
+  hr.hr-post
+  = form_for :message, url: receptions_path do |f|
+    - if @message.errors.any?
+      #error_explanation
+        p.bg-warning
+          i Проверьте правильностость заполнения всех полей!
+    /.row
+    form.form-horizontal role="form"
+      .row.form-group
+        label.col-sm-2.control-label for="fio"
+          ' Ф.И.О.
+          span.text-danger *
+        .col-sm-10
+          = f.text_field :fio, id:'fio', class:'form-control', placeholder:'Ф.И.О.'
+
+      .row.form-group
+        label.col-sm-2.control-label for="email"
+          ' E-mail
+          span.text-danger *
+        .col-sm-10
+          = f.text_field :email, id:'email', class:'form-control', placeholder:'E-mail'
+
+      .row.form-group
+        label.col-sm-2.control-label for="phone" Телефон
+        .col-sm-10
+          = f.text_field :phone, id:'phone', class:'form-control', placeholder:'Телефон'
+
+      .row.form-group
+        label.col-sm-2.control-label for="theme"
+          ' Тема сообщения
+          span.text-danger *
+        .col-sm-10
+          = f.text_field :theme, id:'theme', class:'form-control', placeholder:'Тема сообщения', height:'100px'
+
+      .row.form-group
+        label.col-sm-2.control-label for="message"
+          ' Текст сообщения
+          span.text-danger *
+        .col-sm-10
+          = f.text_area :message, id:'message', class:'form-control', placeholder:'Текст сообщения', rows:"6"
+
+      /.row.form-group
+        label.col-sm-2.control-label for="message"
+          ' Код подтверждения
+          span.text-danger *
+        .col-sm-10
+          = show_simple_captcha(:object=>'message')
+
+      .row.form-group
+        .col-sm-offset-2.col-sm-10
+          button.btn.btn-success type="submit"  Отправить
+
+/= link_to 'Back', posts_path

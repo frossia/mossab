@@ -1,0 +1,12 @@
+#box.content-panel
+  h4.t-c
+    ' Уважаемый(ая)
+    b: i =' @message.fio
+    ' !
+  hr.hr-post
+  p.bg-success Ваше сообщение успешно отправлено. Благодарим Вас за обращение.
+
+  p
+    b> Тема сообщения:
+    = @message.theme
+  p.t-j = @message.message

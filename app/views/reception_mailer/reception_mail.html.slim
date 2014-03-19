@@ -1,0 +1,17 @@
+h3 = @message.fio
+p
+  b> E-Mail:
+  = @message.email
+- unless @message.phone.blank?
+  p
+    b> Телефон:
+    = @message.phone
+p
+  b> Тема сообщения:
+  = @message.theme
+
+p.t-j = @message.message
+
+p
+  i> Отправлено в
+  = @message.created_at

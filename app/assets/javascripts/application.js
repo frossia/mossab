@@ -136,5 +136,20 @@ $(document).ready(function(){
     });
 
 
+
 });
+
+(function($){
+    $(function() {
+        $( '#street' ).kladr({
+            token: '53273edfdba5c76c3d000031',
+            key: '0627c119f87fda00c84aed2eb5a8ac16a1d7de3d',
+            type: $.kladr.type.building,
+//            type: $.kladr.type.street,
+//
+            parentType: $.kladr.type.street
+//            parentId: '7700000000000'
+        });
+    });
+})(jQuery);
 

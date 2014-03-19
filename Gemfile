@@ -66,6 +66,10 @@ gem 'fancybox2-rails'
 
 gem 'youtube_it'
 
+gem 'best_in_place'
+
+gem 'simple_captcha2', require: 'simple_captcha'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

@@ -7,5 +7,10 @@
     text-align: center;
   }
 
+  img[style*="float:left"] {
+    width: 50% !important;
+    height: auto !important;
+  }
+
 
 }

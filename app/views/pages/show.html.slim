@@ -4,6 +4,33 @@
   .t-j
     = raw @page.introtext
     = raw @page.fulltext
+  - unless @page.page_attaches.blank?
+    hr.hr-post
+    .file-panel
+      table.table
+        - @page.page_attaches.each do |attach|
+          - url = request.host_with_port.to_s + attach.url.to_s
+          tr
+            td width='100%' style='vertical-align: middle'
+              a href='http://docs.google.com/viewer?url=http%3A%2F%2F#{url}' target='blank'
+                = attach.title unless blank?
+                = 'Ссылка' if attach.title.blank?
+            td width='46px' style='vertical-align: middle'
+              a href='#{attach.url}' data='down' download=''
+
+        /.file-item
+          a href='http://docs.google.com/viewer?url=http%3A%2F%2F#{url}' target='blank'
+            - if attach.title.blank?
+              | Ссылка
+              a href='#' WORD
+            - else
+              = attach.title
+              a.right href='#' WORD
+          .clearfix
+          /hr.hr-post
+
+      /p = request.host_with_port.to_s
+
 
   - if admin_user_signed_in?
     hr.hr-post

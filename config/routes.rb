@@ -10,6 +10,7 @@ Mossab::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  resources :receptions
   resources :newspapers
   resources :posts do
     collection do
@@ -18,7 +19,11 @@ Mossab::Application.routes.draw do
     end
   end
   #get 'posts#videos'
-  resources :pages
+  resources :pages do
+    collection do
+      get 'deputaty'
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
