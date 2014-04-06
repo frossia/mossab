@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e8b3be3-bea3-4828-b56e-3096e1b2c745" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/widgets/_banners.html.slim" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/widgets/_newspapers.html.slim" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/widgets/_videos.html.slim" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/jquery.bxslider.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/jquery.fittext.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/jquery.kladr.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/jquery.bxslider.css.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/jquery.kladr.css" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/newspapers/_papers.html.slim" afterPath="$PROJECT_DIR$/app/views/newspapers/_newspapers.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_slider.html.slim" afterPath="$PROJECT_DIR$/app/views/layouts/_slider.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_widgets.html.slim" afterPath="$PROJECT_DIR$/app/views/layouts/_widgets.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.slim" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/newspapers/index.html.slim" afterPath="$PROJECT_DIR$/app/views/newspapers/index.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/mossab.iml" afterPath="$PROJECT_DIR$/.idea/mossab.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/posts/videos.html.slim" afterPath="$PROJECT_DIR$/app/views/posts/videos.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mossab.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,7 +60,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="_banners.html.slim" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="_banners.html.slim" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/views/layouts/widgets/_banners.html.slim">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.09977827" vertical-offset="0" max-vertical-offset="1020">
@@ -127,11 +106,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Gemfile">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.2053572" vertical-offset="0" max-vertical-offset="1260">
-                  <caret line="36" column="49" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+                <state vertical-scroll-proportion="0.4028436" vertical-offset="130" max-vertical-offset="1260">
+                  <caret line="20" column="42" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
                   <folding />
                 </state>
               </provider>
@@ -204,7 +183,6 @@
         <option value="$PROJECT_DIR$/app/views/posts/videos.html.slim" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/slick.css" />
         <option value="$PROJECT_DIR$/config/deploy.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/views/layouts/_slider.html.slim" />
         <option value="$PROJECT_DIR$/app/views/layouts/widgets/_videos.html.slim" />
         <option value="$PROJECT_DIR$/app/views/layouts/_widgets.html.slim" />
@@ -213,6 +191,7 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
         <option value="$PROJECT_DIR$/app/views/layouts/widgets/_banners.html.slim" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -1461,14 +1440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2053572" vertical-offset="0" max-vertical-offset="1260">
-          <caret line="36" column="49" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_slider.html.slim">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5629139" vertical-offset="0" max-vertical-offset="453">
@@ -1523,6 +1494,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09977827" vertical-offset="0" max-vertical-offset="1020">
           <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4028436" vertical-offset="130" max-vertical-offset="1260">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
           <folding />
         </state>
       </provider>
