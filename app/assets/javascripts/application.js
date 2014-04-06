@@ -18,12 +18,6 @@
 
 
 
-function loadMore(pageNo) {
-    var url = '/posts?page=';
-    $.get(url + pageNo, function(response) {
-        $("#posts").append(response);
-    });
-}
 
 function displayTime() {
     var currentTime = new Date();
@@ -82,13 +76,6 @@ $(document).ready(function(){
 
 
 
-    var currPage = 1;
-    $("a.next").click(function() {
-        $(this).button('loading');
-        setTimeout(function () {
-            loadMore(++currPage);
-        });
-    });
 
 
 

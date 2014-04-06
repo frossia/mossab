@@ -16,7 +16,7 @@
         - if post.fulltext.empty?
           = image_tag(post.intro_post_image, :class => 'intro_image')
         - else
-          a href='#{post_url(post)}'
+          a href='#{post_url(post)}#gallery'
             = image_tag(post.intro_post_image, :class => 'intro_image')
       .col-md-8.t-j
         = raw post.introtext

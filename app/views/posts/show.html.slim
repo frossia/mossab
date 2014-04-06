@@ -10,7 +10,7 @@
 
   - unless @post.post_images.blank?
     hr.hr-post
-    .row
+    #gallery.row
       - @post.post_images.each_with_index do |n,i|
         /- if (i != 0) && (i % 3).zero?
           .row
