@@ -92,22 +92,28 @@ $(document).ready(function(){
 
 
 
-    $('.bxslider').bxSlider({
-        adaptiveHeight: true,
-        easing: 'ease',
-        infiniteLoop: false,
-        hideControlOnEnd: true,
-        pager: false
+    $('.ad').owlCarousel({
+        singleItem: true,
+        mouseDrag: false,
+        autoHeight: true,
+        paginationNumbers: true
     });
 
-    var slider = $('.main-slider').bxSlider({
-        adaptiveHeight: true,
-        easing: 'ease',
-        nextSelector: '#slider-next',
-        prevSelector: '#slider-prev',
-        pager: true,
-        autoHover: true
+    $('#newspapers').owlCarousel({
+        singleItem: true,
+        mouseDrag: false,
+        autoHeight: true,
+        transitionStyle: 'backSlide'
     });
+
+    $('#banners').owlCarousel({
+        items: 6,
+        autoPlay: 3000,
+        stopOnHover: true,
+        mouseDrag: false
+    });
+
+
 
     $("a.group")
         .attr('rel', 'gallery')
@@ -139,17 +145,4 @@ $(document).ready(function(){
 
 });
 
-(function($){
-    $(function() {
-        $( '#street' ).kladr({
-            token: '53273edfdba5c76c3d000031',
-            key: '0627c119f87fda00c84aed2eb5a8ac16a1d7de3d',
-            type: $.kladr.type.building,
-//            type: $.kladr.type.street,
-//
-            parentType: $.kladr.type.street
-//            parentId: '7700000000000'
-        });
-    });
-})(jQuery);
 

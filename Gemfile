@@ -70,14 +70,9 @@ gem 'best_in_place'
 
 gem 'simple_captcha2', require: 'simple_captcha'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'capistrano', '~> 2.15.5'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+gem 'net-ssh', '~> 2.8.1', :git => "https://github.com/net-ssh/net-ssh"
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'unicorn'
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]

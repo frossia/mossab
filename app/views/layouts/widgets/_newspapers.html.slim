@@ -1,0 +1,16 @@
+- @papers = Newspaper.find(:all, :order => "id desc", :limit => 4).reverse
+.content-panel
+  h5.h-post Выпуски газеты
+  hr.hr-post
+
+  #newspapers
+    - @papers.each do |paper|
+      #slide.t-c
+        .newspaper-panel.t-c
+          a href='#{paper.attachment.url}' target="_blank" style='display: table; margin: 0 auto;'
+            = image_tag('/uploads/newspaper/attachment/'+paper.id.to_s+'/thumbnail.png', :class => 'letter letter-' + rand(1..2).to_s, :style => 'height: 250px')
+        = paper.title
+
+  .t-r
+    hr.hr-post
+    a.link href='#{newspapers_path}' Все выпуски

@@ -1,11 +1,11 @@
 - posts = Post.all.hot
 - unless Post.all.hot.blank?
-  #box.slider-panel.hidden-sm.hidden-xs
-    ul.main-slider
+  #box.slider-panel
+    .ad
       - posts.each do |post|
-        li#li-slide
+        #slide
           - unless post.intro_post_image.blank?
-            h4 = post.title
+            = render partial: 'posts/post_title', :locals => { :post => post }
             hr.post
             .row
               .col-md-4
@@ -13,7 +13,8 @@
               .col-md-8
                 = raw post.introtext
           - else
-            h4 = post.title
-            hr.slider
+            /h4.t-c = post.title
+            = render partial: 'posts/post_title', :locals => { :post => post }
+            hr
             .t-j
               = raw post.introtext

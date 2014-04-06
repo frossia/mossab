@@ -213,6 +213,14 @@ h3.times_new_roman {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+hr {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  border: 1;
+  border-top: 1px solid #D0D0D0;
+  border-bottom: 1px solid #FFFFFF;
+}
+
 //###################  MENU  #########################
 
 .t-menu {
@@ -383,12 +391,23 @@ a#menubtn.hightlight {
 
 .slider-panel {
 //  @include texture(#90cdcd, 75, 1);
-  background: image_url('pattern-27el.png');
+  background: #E4FEE2;
   box-shadow: 0 1px 1px 1px #b3b3b3, inset 0 1px 1px 0 #fff, inset 0 1px 21px 0 rgba(#b3b3b3, .2);
   padding: 15px 15px 15px 15px;
   margin: 0 0 15px 0;
   border-radius: 3px;
   margin: 0 0 40px 0;
+
+  .hr-post, hr {
+    margin-top: 14px;
+    margin-bottom: 14px;
+    border: 1;
+    border-top: 1px solid #D0D0D0;
+    border-bottom: 1px solid #FFFFFF;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
 }
 
 .content-panel {
@@ -735,6 +754,40 @@ a.link {
 }
 
 //###################  NEWSPAPER  #########################
+
+
+//###################  BANNERS  #########################
+
+ul#banners {
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding: 4px 0;
+    height: 55px;
+  }
+
+  a img {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+
+    border-radius: 4px;
+    box-shadow: 0 0 5px 0px #777777;
+
+    @include transition(all, 0.3s, ease-in-out);
+    &:hover {
+      filter: none;
+      -webkit-filter: grayscale(0%);
+      border-radius: 4px;
+      box-shadow: 0 0 8px 0px #777777;
+    }
+  }
+
+}
+
+//###################  BANNERS  #########################
+
 
 //###################  FOOTER  #########################
 

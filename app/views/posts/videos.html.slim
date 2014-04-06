@@ -1,8 +1,6 @@
-
-
 .row
   - @client.videos.each do |video|
-    .col-lg-4.col-md-6.col-xs-12
+    .col-lg-4.col-md-6.col-sm-6.col-xs-12
       br
       .video-container
         .spinner
@@ -13,19 +11,3 @@
           .rect5
         p.t-c
           = raw video.embed_html5({:frameborder => '0'})
-      /= video.thumbnails
-      /p: b = video.media_content.last.url
-
-/- @videos.each_with_index do |video,i|
-  - if (i != 0) && (i % 3).zero?
-    .clearfix
-  .col-md-4.t-c.newspaper-panel
-    br
-    .video-container
-      .spinner
-        .rect1
-        .rect2
-        .rect3
-        .rect4
-        .rect5
-      = raw video.introtext
