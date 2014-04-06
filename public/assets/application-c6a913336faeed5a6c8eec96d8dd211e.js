@@ -24878,7 +24878,7 @@ if ( typeof define === 'function' && define.amd ) {
 
 }).call(this);
 /**
- * sidebarEffects.js v1.0.0
+ * sidebareffects.js v1.0.0
  * http://www.codrops.com
  *
  * Licensed under the MIT license.
