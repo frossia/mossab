@@ -1,7 +1,5 @@
 - Category.all.each_with_index do |cat, i|
 
-  h4 МОСКВОРЕЧЬЕ-САБУРОВО
-
   .col-md-4
     .inline.cat-header
       i(class='#{cat.icon} fa-lg')
@@ -11,5 +9,6 @@
       a.menu-item href='#{page_path(page)}' = page.title
       - if (i < cat.pages.count-1)
         hr.menu
+
 .clearfix
 br
