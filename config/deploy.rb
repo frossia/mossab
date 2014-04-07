@@ -97,11 +97,11 @@ end
 set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 
-# after "deploy:update_code", :copy_database
-#
-# task :copy_database, roles => :app do
-#   run "scp admin@frossiacsb.no-ip.biz:/Users/Admin/projects/mossab/db/development.sqlite3 #{deploy_to}/current/db/production.sqlite3"
-# end
+after "deploy:update_code", :copy_database
+
+task :copy_database, roles => :app do
+  run "scp admin@frossiacsb.no-ip.biz:/Users/Admin/projects/mossab/db/development.sqlite3 #{deploy_to}/current/db/production.sqlite3"
+end
 
 
 # - for unicorn - #

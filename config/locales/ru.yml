@@ -5,6 +5,7 @@ ru:
       short: "%d %b"
       long: "%d %B %Y"
       month: "%b %Y"
+      year: "%Y"
     day_names: [воскресенье, понедельник, вторник, среда, четверг, пятница, суббота]
     standalone_day_names: [Воскресенье, Понедельник, Вторник, Среда, Четверг, Пятница, Суббота]
     abbr_day_names: [Вс, Пн, Вт, Ср, Чт, Пт, Сб]
@@ -183,6 +184,9 @@ ru:
 
 
   devise:
+    failure:
+      admin_user:
+        unauthenticated: 'Вы не авторизованы! Введите логин и пароль!'
     sessions:
       admin_user:
         signed_in: "Добро пожаловать!"

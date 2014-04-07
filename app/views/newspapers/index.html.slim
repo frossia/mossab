@@ -1,1 +1,21 @@
-= render 'newspapers'
+.row
+
+  - start_year = @papers.first.created_at
+
+  - @papers.each_with_index do |n,i|
+
+    - if n.created_at.year != start_year.year
+      .col-xs-12
+        - start_year = n.created_at
+        h1.t-c = I18n.l start_year.to_date, format: :year
+        hr
+    - elsif i < 1
+      .col-xs-12
+        h1.t-c = I18n.l start_year.to_date, format: :year
+        hr
+
+    .col-xs-6.col-md-4.t-c.newspaper-panel
+      /hr.hr-newspaper
+      a href='#{n.attachment.url}' target="_blank"
+        = image_tag('/uploads/newspaper/attachment/'+n.id.to_s+'/thumbnail.png', :class => 'letter letter-' + rand(1..2).to_s)
+      h4.capitalize.text-muted = n.title

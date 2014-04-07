@@ -2,7 +2,7 @@ class Newspaper < ActiveRecord::Base
 
   mount_uploader :attachment, AttachmentUploader
 
-  attr_accessible :title, :attachment
+  attr_accessible :title, :attachment, :created_at
 
   after_update :cover
   after_create :cover

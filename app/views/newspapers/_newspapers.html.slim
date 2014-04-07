@@ -1,8 +1,0 @@
-.row
-  - Newspaper.all.each_with_index do |n,i|
-    /- if (i != 0) && (i % 3).zero?
-    .col-xs-6.col-md-4.t-c.newspaper-panel
-      /hr.hr-newspaper
-      a href='#{n.attachment.url}' target="_blank"
-        = image_tag('/uploads/newspaper/attachment/'+n.id.to_s+'/thumbnail.png', :class => 'letter letter-' + rand(1..2).to_s)
-      h4.text-muted = n.title
