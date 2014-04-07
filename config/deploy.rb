@@ -83,6 +83,12 @@ set :repository,      "git://github.com/frossia/mossab.git"
 
 ## --- Ниже этого места ничего менять скорее всего не нужно ---
 
+desc 'copy ckeditor nondigest assets'
+task :copy_nondigest_assets, roles: :app do
+  run "cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} ckeditor:create_nondigest_assets"
+end
+after 'deploy:assets:precompile', 'copy_nondigest_assets'
+
 before 'deploy:finalize_update', 'set_current_release'
 task :set_current_release, :roles => :app do
   set :current_release, latest_release
