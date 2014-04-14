@@ -21,7 +21,10 @@ class PageAttachUploader < CarrierWave::Uploader::Base
   #end
 
   def filename
-    "#{secure_token(10)}.#{file.extension}" if original_filename.present?
+    if original_filename
+      @name = File.basename(original_filename, '.*')
+      "#{@name.parameterize}.#{file.extension}"
+    end
   end
 
   protected

@@ -76,3 +76,5 @@ gem 'net-ssh', '~> 2.8.1', :git => "https://github.com/net-ssh/net-ssh"
 
 gem 'unicorn'
 
+gem 'russian', '~> 0.6.0'
+

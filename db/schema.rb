@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316190008) do
+ActiveRecord::Schema.define(version: 20140409173357) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -80,6 +80,13 @@ ActiveRecord::Schema.define(version: 20140316190008) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "attachment"
+  end
+
+  create_table "npas", force: true do |t|
+    t.string   "npa_attach"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "page_attaches", force: true do |t|

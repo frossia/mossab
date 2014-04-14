@@ -1,21 +1,38 @@
 .row
 
-  - start_year = @papers.first.created_at
+  .col-xs-12
+    ul#newspapers_years.nav.nav-pills.nav-justified.hidden-xs
+      - @papers.get_unic_years.each_with_index do |year, i|
+        - if i < 1
+          li.active
+            a href='#year#{year}' data-toggle="tab" #{year}
+        - else
+          li
+            a href='#year#{year}' data-toggle="tab" #{year}
+    ul#newspapers_years.nav.nav-pills.visible-xs
+      - @papers.get_unic_years.each_with_index do |year, i|
+        - if i < 1
+          li.active
+            a href='#year#{year}' data-toggle="tab" #{year}
+        - else
+          li
+            a href='#year#{year}' data-toggle="tab" #{year}
 
-  - @papers.each_with_index do |n,i|
-
-    - if n.created_at.year != start_year.year
-      .col-xs-12
-        - start_year = n.created_at
-        h1.t-c = I18n.l start_year.to_date, format: :year
-        hr
-    - elsif i < 1
-      .col-xs-12
-        h1.t-c = I18n.l start_year.to_date, format: :year
-        hr
-
-    .col-xs-6.col-md-4.t-c.newspaper-panel
-      /hr.hr-newspaper
-      a href='#{n.attachment.url}' target="_blank"
-        = image_tag('/uploads/newspaper/attachment/'+n.id.to_s+'/thumbnail.png', :class => 'letter letter-' + rand(1..2).to_s)
-      h4.capitalize.text-muted = n.title
+    .tab-content
+      - @papers.get_unic_years.each_with_index do |year, i|
+        - if i < 1
+          .tab-pane.fade.in.active id='year#{year}'
+            .row
+              - @papers.get_papers_of_year(year.to_s).each do |paper|
+                .col-xs-6.col-md-4.t-c.newspaper-panel
+                  a href='#{paper.attachment.url}' target="_blank"
+                    = image_tag('/uploads/newspaper/attachment/'+paper.id.to_s+'/thumbnail.png', :class => 'letter letter-' + rand(1..2).to_s)
+                  h4.capitalize.text-muted = paper.title
+        - else
+          .tab-pane.fade id='year#{year}'
+            .row
+              - @papers.get_papers_of_year(year.to_s).each do |paper|
+                .col-xs-6.col-md-4.t-c.newspaper-panel
+                  a href='#{paper.attachment.url}' target="_blank"
+                    = image_tag('/uploads/newspaper/attachment/'+paper.id.to_s+'/thumbnail.png', :class => 'letter letter-' + rand(1..2).to_s)
+                  h4.capitalize.text-muted = paper.title

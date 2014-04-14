@@ -88,6 +88,13 @@ body {
 
 html, body {height:100%;overflow:auto}
 
+a {
+  color: #d43f3a;
+  &:hover {
+    color: #af3128;
+  }
+}
+
 #wrapper {
   width: 100%;
   height: 100%;
@@ -186,6 +193,9 @@ img {
 .t-j {
   text-align: justify;
 }
+.f-i {
+  font-style: italic;
+}
 
 .light {
   color: #757575;
@@ -223,6 +233,30 @@ hr {
 
 .capitalize {
   text-transform: capitalize
+}
+
+
+
+ul.nav a {
+  font-size: 1.3em;
+  &:hover {
+    background-color: #ffffff;
+  }
+  &:focus {
+    background-color: #32BD6F;
+  }
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #32BD6F;
+}
+
+.tab-pane {
+  padding-top: 20px;
+}
+
+.panel-body .list-group {
+  margin: 0;
 }
 
 //###################  MENU  #########################
@@ -625,7 +659,7 @@ hr.slider {
     }
   }
 
-  a[href$=".pdf"][data='down'] {
+  a[href$=".pdf"][data='down'] > i {
     display: block;
     width: 45px;
     height: 45px;
@@ -639,13 +673,70 @@ hr.slider {
 
 }
 
+#page_attach.list-group {
+  .list-group-item {
+    height: 65px;
+  }
+  a {
+    display: table;
+    width: 100%;
+  }
+  h5 {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 15px;
+    width: 100%;
+  }
+  a[href$=".doc"][data='down'] span.icon, a[href$=".docx"][data='down'] span.icon {
+    display: block;
+    width: 45px;
+    height: 45px;
+    background: image_url('word.png') no-repeat 50% 50%;
+  }
 
-.form-group {
-//  margin-bottom: 50px;
-//  height: 50px;
-//  textarea {
-//    height: 100px;
-//  }
+  a[href$=".xls"][data='down'] span.icon, a[href$=".xlsx"][data='down'] span.icon {
+    display: block;
+    width: 45px;
+    height: 45px;
+    background: image_url('xls.png') no-repeat 50% 50%;
+  }
+
+  a[href$=".pdf"][data='down'] span.icon {
+    display: block;
+    margin: 0;
+    width: 45px;
+    height: 45px;
+    background: image_url('pdf.png') no-repeat 50% 50%;
+  }
+}
+
+
+#category_list , #newspapers_years{
+  li {
+    margin: 0;
+    a {
+      padding: 5px 10px;
+    }
+    &.active a {
+      color: #fff;
+    }
+  }
+  a {
+    font-size: 1em;
+    color: #333;
+  }
+}
+
+#accordion .panel-title > a {
+  display: block;
+  width: 100%;
+}
+
+.cat {
+}
+
+.deputat-circle {
+  height: 100px;
 }
 
 //###################  CONTENT  #########################

@@ -1,0 +1,11 @@
+#category_list.content-panel
+  h5.h-post = @page.categories[0].name
+  hr.hr-post
+  ul.nav.nav-pills.nav-stacked
+    - @page.categories[0].pages.each do |page|
+      - if current_page?(url_for(page)) or (current_page?('/pages/npa') and page.id == 16)
+        li.active
+          a href='#{url_for(page)}' = page.title
+      - else
+        li
+          a href='#{url_for(page)}' = page.title

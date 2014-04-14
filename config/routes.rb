@@ -10,6 +10,9 @@ Mossab::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+
+  get 'pages/16', to: redirect('pages/npa')
+
   resources :receptions
   resources :newspapers
   resources :posts do
@@ -22,6 +25,8 @@ Mossab::Application.routes.draw do
   resources :pages do
     collection do
       get 'deputaty'
+      post 'mail_deputaty'
+      get 'npa'
     end
   end
   # Example of regular route:

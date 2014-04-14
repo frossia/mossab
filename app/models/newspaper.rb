@@ -20,4 +20,17 @@ class Newspaper < ActiveRecord::Base
     image.write(dir + "/thumbnail.png")
   end
 
+  def self.get_papers_of_year(year)
+    p = Newspaper.where("strftime('%Y', created_at) = ?", year)
+    p
+  end
+
+  def self.get_unic_years
+    p = []
+    Newspaper.all.each do |paper|
+      p << paper.created_at.year
+    end
+    p.uniq
+  end
+
 end

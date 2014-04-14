@@ -1,0 +1,21 @@
+
+- @npas.get_unic_years.each_with_index do |year, i|
+  h2 = year
+  hr
+  div.panel-group id='accordion_#{year}'
+    - @npas.get_unic_month(year.to_s).each do |month|
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            a data-parent="#accordion_#{year}" data-toggle="collapse" href="#tab#{year}_#{month}"
+              = I18n.t(Date::MONTHNAMES[month])
+        div.panel-collapse.collapse id='tab#{year}_#{month}'
+          .panel-body
+            .list-group
+              - @npas.get_npas_of_month(year.to_s, month).each do |npa|
+                a.list-group-item href='#{npa.npa_attach}' target="_blank"
+                  h5.list-group-item-heading
+                    i.fa.fa-download>
+                    | Решения Совета депутатов от #{I18n.l npa.created_at}
+                  - unless npa.description.blank?
+                    h6.text-muted.t-j.f-i = npa.description.html_safe

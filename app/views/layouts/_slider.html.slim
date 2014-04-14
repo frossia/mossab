@@ -12,9 +12,15 @@
                 = image_tag(post.intro_post_image)
               .col-md-8
                 = raw post.introtext
+            hr
+            - unless post.fulltext.empty?
+              a.btn.btn-success.btn-sm.pull-right href='#{post_url(post)}'Подробнее...
           - else
             /h4.t-c = post.title
             = render partial: 'posts/post_title', :locals => { :post => post }
             hr
             .t-j
               = raw post.introtext
+            hr
+            - unless post.fulltext.empty?
+              a.btn.btn-success.btn-sm.pull-right href='#{post_url(post)}'Подробнее...

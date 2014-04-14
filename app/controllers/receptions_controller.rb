@@ -7,8 +7,8 @@ class ReceptionsController < ApplicationController
   def create
     @message = Reception.new(params[:message])
     if @message.save
-      render 'thanks'
       ReceptionMailer.reception_mail(@message).deliver
+      render 'thanks'
     else
       render 'new'
     end
