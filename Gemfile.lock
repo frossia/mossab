@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/galetahub/simple-captcha.git
+  revision: 2602bf19a63df25929960b5a7721a9d265281ec1
+  specs:
+    simple_captcha (0.1.6)
+
+GIT
   remote: git://github.com/gregbell/active_admin.git
   revision: aa10436f207d6a90989c417f59dfa13d782a76e9
   specs:
@@ -15,6 +21,12 @@ GIT
       rails (>= 3.2, < 4.1)
       ransack (~> 1.0)
       sass-rails
+
+GIT
+  remote: http://github.com/rmagick/rmagick.git
+  revision: 79e1708c7f6792a3a90cb8cb3ffaeb74c58e092e
+  specs:
+    rmagick (2.13.2)
 
 GIT
   remote: https://github.com/net-ssh/net-ssh
@@ -205,8 +217,6 @@ GEM
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
     seedbank (0.3.0)
-    simple_captcha2 (0.2.1)
-      rails (>= 3.1)
     simple_oauth (0.1.9)
     slim (2.0.2)
       temple (~> 0.6.6)
@@ -285,11 +295,12 @@ DEPENDENCIES
   nokogiri
   protected_attributes
   rails (= 4.0.2)
+  rmagick (= 2.13.2)!
   russian (~> 0.6.0)
   sass-rails (~> 4.0.0)
   sdoc
   seedbank
-  simple_captcha2
+  simple_captcha!
   slim-rails
   sqlite3
   table_print

@@ -97,12 +97,29 @@ end
 set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 
-after "deploy:update_code", :copy_database
+# after "deploy:update_code", :copy_database
+#
+# task :copy_database, roles => :app do
+#   run "scp admin@frossiacsb.no-ip.biz:/Users/Admin/projects/mossab/db/development.sqlite3 #{deploy_to}/current/db/production.sqlite3"
+# end
 
-task :copy_database, roles => :app do
-  run "scp admin@frossiacsb.no-ip.biz:/Users/Admin/projects/mossab/db/development.sqlite3 #{deploy_to}/current/db/production.sqlite3"
+namespace :db do
+
+  task :backup do
+    run "cp #{deploy_to}/current/db/production.sqlite3 #{deploy_to}/db_backup/backup.sqlite3"
+    run "cp #{deploy_to}/current/db/production.sqlite3 #{deploy_to}/db_backup/backup#{Time.now.strftime("_%Y-%d-%m")}"
+    download("#{current_path}/db/production.sqlite3", "/Users/Admin/projects/mossab/tmp/db_backup/backup#{Time.now.strftime("_%Y-%d-%m")}.sqlite3")
+  end
+
+  task :up do
+    upload("/Users/Admin/projects/mossab/db/development.sqlite3", "#{current_path}/db/production.sqlite3")
+  end
+
+  task :down do
+    download("#{current_path}/db/production.sqlite3", "/Users/Admin/projects/mossab/db/development.sqlite3")
+  end
+
 end
-
 
 # - for unicorn - #
 namespace :deploy do

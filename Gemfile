@@ -58,6 +58,8 @@ gem 'carrierwave'
 
 gem 'mini_magick'
 
+gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'
+
 gem 'bourbon'
 
 gem 'nested_form'
@@ -68,7 +70,7 @@ gem 'youtube_it'
 
 gem 'best_in_place'
 
-gem 'simple_captcha2', require: 'simple_captcha'
+gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 
 gem 'capistrano', '~> 2.15.5'
 

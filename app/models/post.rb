@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
   scope :videos, includes(:tags).where(:tags => { :name => 'Собрание' }).order('created_at DESC')
   scope :published_and_not_hot, -> { where(published: true, hot: false) }
   #scope :hot, -> { where(published: true, hot: true, "end_date < ?", Date.today) }
-  scope :hot, -> { where("published = ? AND hot = ? AND end_date > ?", true, true, Date.today) }
+  scope :hot, -> { where("published = ? AND hot = ? AND end_date > ?", true, true, Date.today).order('created_at DESC') }
 
   scope :with_images, joins(:post_images).
       select('posts.id').

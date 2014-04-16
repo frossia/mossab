@@ -1,5 +1,7 @@
 class ReceptionsController < ApplicationController
 
+  include SimpleCaptcha::ControllerHelpers
+
   def new
     @message = Reception.new
   end
