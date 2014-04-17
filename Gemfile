@@ -58,8 +58,6 @@ gem 'carrierwave'
 
 gem 'mini_magick'
 
-gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'
-
 gem 'bourbon'
 
 gem 'nested_form'

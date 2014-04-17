@@ -23,12 +23,6 @@ GIT
       sass-rails
 
 GIT
-  remote: http://github.com/rmagick/rmagick.git
-  revision: 79e1708c7f6792a3a90cb8cb3ffaeb74c58e092e
-  specs:
-    rmagick (2.13.2)
-
-GIT
   remote: https://github.com/net-ssh/net-ssh
   revision: 6fc2b4d782a45ead3cf2ca14b3c3fad1d738acc2
   specs:
@@ -295,7 +289,6 @@ DEPENDENCIES
   nokogiri
   protected_attributes
   rails (= 4.0.2)
-  rmagick (= 2.13.2)!
   russian (~> 0.6.0)
   sass-rails (~> 4.0.0)
   sdoc
