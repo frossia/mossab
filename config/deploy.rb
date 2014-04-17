@@ -129,7 +129,7 @@ namespace :db do
 end
 
 before "deploy:update_code", 'db:backup'
-after "deploy:update_code", 'get_backup_and_restart'
+after "deploy:update_code", 'db:get_backup_and_restart'
 
 
 # - for unicorn - #
