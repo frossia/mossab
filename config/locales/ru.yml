@@ -212,3 +212,10 @@ ru:
       unpublished: "Не опубликованные"
       out_of_date: "Истекшие"
       upcoming: "Текущие"
+
+  simple_captcha:
+    placeholder: "..."
+    label: "Введите символы с картинки"
+    message:
+      default: "Secret Code did not match with the Image"
+      user: "The secret Image and code were different"

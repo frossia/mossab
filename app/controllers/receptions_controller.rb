@@ -8,9 +8,13 @@ class ReceptionsController < ApplicationController
 
   def create
     @message = Reception.new(params[:message])
-    if @message.save
-      ReceptionMailer.reception_mail(@message).deliver
-      render 'thanks'
+    if simple_captcha_valid?
+      if @message.save
+        ReceptionMailer.reception_mail(@message).deliver
+        render 'thanks'
+      else
+        render 'new'
+      end
     else
       render 'new'
     end

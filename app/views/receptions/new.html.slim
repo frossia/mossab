@@ -47,7 +47,8 @@
           span.text-danger *
         .col-sm-10
           = show_simple_captcha(:object=>'message')
-      = show_simple_captcha(:label => "human authentication")
+      p.t-c
+        = show_simple_captcha
 
       .row.form-group
         .col-sm-offset-2.col-sm-10.t-r
