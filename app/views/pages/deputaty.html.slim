@@ -5,92 +5,100 @@
   hr.hr-post
   /============================/
 
-  p.t-c Страница в разработке...
+  - if flash[:notice]
+    .bg-success
+      = flash[:notice]
+  - if flash[:error]
+    .bg-warning
+      = flash[:error]
 
-  /p Введите адрес и узнайте кто Ваш депутат.
-  /input#deputaty.form-control placeholder='Введите Ваш адрес...'
-  /hr
-  /
-  /
-  /
-  /#category1.cat.hidden.t-c
-  /  strong Избирательный округ № 1
-  /  br
-  /  br
-  /  .row
-  /    .col-md-6.t-c
-  /      img.deputat-circle alt="andrianov" src="/uploads/ckeditor/pictures/13/content_1.jpg"
-  /      br
-  /      span Андрианов Михаил Владимирович
-  /    .col-md-6.t-c
-  /      img.deputat-circle alt="kudinova" src="/uploads/ckeditor/pictures/14/content_2.jpg"
-  /      br
-  /      span Кудинова Марина Феликсовна
-  /
-  /#category2.cat.hidden.t-c
-  /  strong Избирательный округ № 2
-  /  br
-  /  br
-  /  .row
-  /    .col-md-6.t-c
-  /      img.deputat-circle alt="andrianov" src="/uploads/ckeditor/pictures/15/content_3.jpg"
-  /      br
-  /      span Заусаева Наталья Васильевна
-  /    .col-md-6.t-c
-  /      img.deputat-circle alt="kudinova" src="/uploads/ckeditor/pictures/16/content_4.jpg"
-  /      br
-  /      span Тимохов Иван Сергеевич
-  /
-  /#category3.cat.hidden.t-c
-  /  strong Избирательный округ № 3
-  /  br
-  /  br
-  /  .row
-  /    .col-md-6.t-c
-  /      img.deputat-circle alt="andrianov" src="/uploads/ckeditor/pictures/17/content_5.jpg"
-  /      br
-  /      span Аверин Валерий Иванович
-  /    .col-md-6.t-c
-  /      img.deputat-circle alt="kudinova" src="/uploads/ckeditor/pictures/18/content_6.jpg"
-  /      br
-  /      span Варакина Надежда Васильевна
-  /
-  /#category4.cat.hidden.t-c
-  /  strong Избирательный округ № 4
-  /  br
-  /  br
-  /  .row
-  /    .col-md-6.t-c
-  /      img.deputat-circle alt="andrianov" src="/uploads/ckeditor/pictures/19/content_7.jpg"
-  /      br
-  /      span Ковалева Елена Александровна
-  /    .col-md-6.t-c
-  /      img.deputat-circle alt="kudinova" src="/uploads/ckeditor/pictures/20/content_8.jpg"
-  /      br
-  /      span Куимов Владимир Михайлович
-  /
-  /#category5.cat.hidden.t-c
-  /  strong Избирательный округ № 5
-  /  br
-  /  br
-  /  .row
-  /    .col-md-6.t-c
-  /      img.deputat-circle alt="andrianov" src="/uploads/ckeditor/pictures/21/content_9.jpg"
-  /      br
-  /      span Вирин Михаил Михайлович
-  /    .col-md-6.t-c
-  /      img.deputat-circle alt="kudinova" src="/uploads/ckeditor/pictures/22/content_10.jpg"
-  /      br
-  /      span Кузьмин Андрей Юрьевич
-  /
-  /#mail_form.hidden
-  /  hr
-  /  p Чтобы оправить Вашим депутатам сообщение, заполните форму ниже
-  /  form action="mail_deputaty" class="deputaty" id="deputaty" method="post"
-  /    input#email_category.hidden name="email_category" type="text"
-  /    input#user_email.form-control name="user_email" type="text" placeholder='E-Mail'
-  /    br
-  /    textarea#message.form-control name="message" rows="5" placeholder='Ваше сообщение...'
-  /    br
-  /    .t-r
-  /      button.btn.btn-success type="submit"  Отправить
+
+  p Введите адрес и узнайте кто Ваш депутат.
+  input#deputaty.form-control placeholder='Введите Ваш адрес...'
+  hr
+
+
+
+  #category1.cat.hidden.t-c
+    strong Избирательный округ № 1
+    br
+    br
+    .row
+      .col-md-6.t-c
+        img.deputat-circle alt="andrianov" src="/uploads/ckeditor/pictures/13/content_1.jpg"
+        br
+        span Андрианов Михаил Владимирович
+      .col-md-6.t-c
+        img.deputat-circle alt="kudinova" src="/uploads/ckeditor/pictures/14/content_2.jpg"
+        br
+        span Кудинова Марина Феликсовна
+
+  #category2.cat.hidden.t-c
+    strong Избирательный округ № 2
+    br
+    br
+    .row
+      .col-md-6.t-c
+        img.deputat-circle alt="andrianov" src="/uploads/ckeditor/pictures/15/content_3.jpg"
+        br
+        span Заусаева Наталья Васильевна
+      .col-md-6.t-c
+        img.deputat-circle alt="kudinova" src="/uploads/ckeditor/pictures/16/content_4.jpg"
+        br
+        span Тимохов Иван Сергеевич
+
+  #category3.cat.hidden.t-c
+    strong Избирательный округ № 3
+    br
+    br
+    .row
+      .col-md-6.t-c
+        img.deputat-circle alt="andrianov" src="/uploads/ckeditor/pictures/17/content_5.jpg"
+        br
+        span Аверин Валерий Иванович
+      .col-md-6.t-c
+        img.deputat-circle alt="kudinova" src="/uploads/ckeditor/pictures/18/content_6.jpg"
+        br
+        span Варакина Надежда Васильевна
+
+  #category4.cat.hidden.t-c
+    strong Избирательный округ № 4
+    br
+    br
+    .row
+      .col-md-6.t-c
+        img.deputat-circle alt="andrianov" src="/uploads/ckeditor/pictures/19/content_7.jpg"
+        br
+        span Ковалева Елена Александровна
+      .col-md-6.t-c
+        img.deputat-circle alt="kudinova" src="/uploads/ckeditor/pictures/20/content_8.jpg"
+        br
+        span Куимов Владимир Михайлович
+
+  #category5.cat.hidden.t-c
+    strong Избирательный округ № 5
+    br
+    br
+    .row
+      .col-md-6.t-c
+        img.deputat-circle alt="andrianov" src="/uploads/ckeditor/pictures/21/content_9.jpg"
+        br
+        span Вирин Михаил Михайлович
+      .col-md-6.t-c
+        img.deputat-circle alt="kudinova" src="/uploads/ckeditor/pictures/22/content_10.jpg"
+        br
+        span Кузьмин Андрей Юрьевич
+
+  #mail_form.hidden
+    hr
+    p Чтобы оправить Вашим депутатам сообщение, заполните форму ниже
+    form action="mail_deputaty" class="deputaty" id="deputaty" method="post"
+      input#email_category.hidden name="email_category" type="text"
+      input#user_email.form-control name="user_email" type="text" placeholder='E-Mail'
+      br
+      textarea#message.form-control name="message" rows="5" placeholder='Ваше сообщение...'
+      br
+      .t-c
+        = show_simple_captcha
+      .t-r
+        button.btn.btn-success type="submit"  Отправить

@@ -218,6 +218,7 @@ $(document).ready(function(){
 
 
 
+
     $("a.group")
         .attr('rel', 'gallery')
         .fancybox({

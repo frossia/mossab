@@ -72,6 +72,26 @@
 #  cat.update_attributes(:published => true)
 #end
 
-file = File.read('tmp/programm.doc')
-puts file.bytesize
-query =
+# file = File.read('tmp/programm.doc')
+# puts file.bytesize
+# puts directory_size('public')
+
+  path = 'public'
+
+  path << '/' unless path.end_with?('/')
+
+  raise RuntimeError, "#{path} is not a directory" unless File.directory?(path)
+
+  total_size = 0
+  file_count = 0
+  Dir["#{path}**/*"].each do |f|
+    total_size += File.size(f) if File.file?(f) && File.size?(f)
+    file_count = file_count + 1
+  end
+  p file_count
+  p total_size
+  p ' bytes'
+  p total_size / 2**20
+  p ' Mb'
+
+

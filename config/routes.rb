@@ -13,6 +13,9 @@ Mossab::Application.routes.draw do
 
   get 'pages/16', to: redirect('pages/npa')
 
+  get 'pages/backup'
+  get 'pages/do_backup'
+
   resources :receptions
   resources :newspapers
   resources :posts do

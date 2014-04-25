@@ -17,4 +17,6 @@ class ApplicationController < ActionController::Base
     @client = @client.videos_by(:user => '5u5zCbVB6s8yF-_2PmpOYw')
   end
 
+
+
 end

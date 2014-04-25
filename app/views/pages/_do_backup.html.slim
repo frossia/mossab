@@ -1,0 +1,18 @@
+/p> Total size
+/strong = @total_size
+/p> Files count
+/strong = @files_count
+
+- path = 'public/uploads'
+
+- path << '/' unless path.end_with?('/')
+
+- raise RuntimeError, "#{path} is not a directory" unless File.directory?(path)
+
+- @total_size = 0
+- @files_count = 0
+- Dir["#{path}**/*"].each do |f|
+  - @total_size += File.size(f) if File.file?(f) && File.size?(f)
+  - @files_count = @files_count + 1
+  = @files_count = @files_count + 1
+= @total_size = @total_size / 2**20

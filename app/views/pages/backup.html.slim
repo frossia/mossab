@@ -1,0 +1,15 @@
+h1 BACKUP
+p
+  span> Размер:
+  strong =' public_size[0].to_s
+  span Mb
+p
+  span> Всего
+  strong =' public_size[1].to_s
+  span файлов
+
+a#ajax href="/pages/do_backup" data-remote="true" ACTION
+#results
+  p NULL
+
+

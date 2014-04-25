@@ -1,0 +1,3 @@
+var c = '123';
+$("#results").html("<%= escape_javascript render(:partial => 'pages/do_backup', :locals => { :c => @c }) %>");
+console.log('saf');

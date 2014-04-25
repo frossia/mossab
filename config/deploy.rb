@@ -103,6 +103,26 @@ set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do
 #   run "scp admin@frossiacsb.no-ip.biz:/Users/Admin/projects/mossab/db/development.sqlite3 #{deploy_to}/current/db/production.sqlite3"
 # end
 
+# namespace :files do
+  task :check, :roles => :app do
+
+    path = "#{deploy_to}/current/public/uploads"
+
+    path << '/' unless path.end_with?('/')
+
+    raise RuntimeError, "#{path} is not a directory" unless File.directory?(path)
+
+    total_size = 0
+    file_count = 0
+    Dir["#{path}**/*"].each do |f|
+      # total_size += File.size(f) if File.file?(f) && File.size?(f)
+      file_count = file_count + 1
+    end
+
+    puts file_count
+    # total_size = total_size / 2**20
+  end
+# end
 
 namespace :db do
 
@@ -126,10 +146,20 @@ namespace :db do
     download("#{current_path}/db/production.sqlite3", "/Users/Admin/projects/mossab/db/development.sqlite3")
   end
 
+  task :backup_uploads do
+    run "cp -r -n #{current_path}/public/uploads/* #{deploy_to}/db_backup/uploads"
+  end
+
+  task :restore_uploads do
+    run "cp -r #{deploy_to}/db_backup/uploads/* #{current_path}/public/uploads/"
+  end
+
 end
 
+before "deploy:update_code", 'db:backup_uploads'
 before "deploy:update_code", 'db:backup'
-after "deploy:update_code", 'db:get_backup_and_restart'
+after "deploy", 'db:restore_uploads'
+after "deploy", 'db:get_backup_and_restart'
 
 
 # - for unicorn - #
