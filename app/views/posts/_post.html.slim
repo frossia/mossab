@@ -1,6 +1,5 @@
 #box.content-panel
 
-
   = render partial: 'posts/post_title', :locals => { :post => post }
   hr.hr-post
 
@@ -30,7 +29,7 @@
               span.small.label.label-info<> = tag.name
         td
           - unless post.fulltext.empty?
-            a.btn.btn-success.btn-sm.pull-right href='#{post_url(post)}'Подробнее...
+            a.btn.btn-success.btn-sm.pull-right.t-uppercase href='#{post_url(post)}'Подробнее...
   - if admin_user_signed_in?
     .clearfix
       hr.hr-post

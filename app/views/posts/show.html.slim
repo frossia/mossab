@@ -1,4 +1,7 @@
 #box.content-panel
+
+  = title @post.title.html_safe
+
   /= link_to ('<i class="fa fa-arrow-left"></i> ').html_safe + 'Назад', posts_path, :class => 'btn btn-default btn-xs pull-left', :style => 'margin: 10px 10px 10px 0;'
   /h4.h-post = @post.title
   = render partial: 'posts/post_title', :locals => { :post => @post }

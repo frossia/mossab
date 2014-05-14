@@ -1,7 +1,10 @@
 #footer
   .container
     .row
-      .t-c-small.col-md-6.t-c
+      .t-c-small.col-md-1.t-c
+        .visible-lg.visible-md
+          = render 'layouts/metrika'
+      .t-c-small.col-md-5.t-c
         .btn-group-vertical.visible-sm.visible-xs
           a.btn.btn-default href='#{url_for :controller => 'posts', :action => 'videos'}'
             i.fa.fa-video-camera>

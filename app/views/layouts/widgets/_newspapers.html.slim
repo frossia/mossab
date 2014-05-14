@@ -9,8 +9,8 @@
         .newspaper-panel.t-c
           a href='#{paper.attachment.url}' target="_blank" style='display: table; margin: 0 auto;'
             = image_tag('/uploads/newspaper/attachment/'+paper.id.to_s+'/thumbnail.png', :class => 'letter letter-' + rand(1..2).to_s, :style => 'height: 250px')
-        = paper.title
+        span.t-capitalize = paper.title
 
   .t-r
     hr.hr-post
-    a.link href='#{newspapers_path}' Все выпуски
+    a.link.t-uppercase href='#{newspapers_path}' Все выпуски

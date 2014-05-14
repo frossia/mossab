@@ -49,10 +49,10 @@ br
           .btn-group-vertical
             /a.btn.btn-info.hidden-xs
               h4.times_new_roman  +7 (499) 782-88-12
-            a.btn.btn-info.t-l href='/pages/deputaty'
+            a.btn.btn-info.t-l.t-uppercase href='/pages/deputaty'
               i.fa.fa-group>
               | Обратиться к депутатам
-            a.btn.btn-info.t-l href='#{new_reception_path}'
+            a.btn.btn-info.t-l.t-uppercase href='#{new_reception_path}'
               i.fa.fa-building-o>
               | Онлайн приемная аппарата
 
@@ -72,7 +72,7 @@ br
               ul
                 - pages = Category.find(2).pages
                 - pages.each do |page|
-                  li: a href='#{url_for(page)}' = page.title
+                  li: a href='#{url_for(page)}' = page.title.html_safe
         td
           ul
             li
@@ -80,7 +80,7 @@ br
               ul
                 - pages = Category.find(3).pages
                 - pages.each do |page|
-                  li: a href='#{url_for(page)}' = page.title
+                  li: a href='#{url_for(page)}' = page.title.html_safe
         td
           ul
             li
@@ -88,7 +88,7 @@ br
               ul
                 - pages = Category.find(4).pages
                 - pages.each do |page|
-                  li: a href='#{url_for(page)}' = page.title
+                  li: a href='#{url_for(page)}' = page.title.html_safe
         td style='width:100px': a#menubtn href='#'
           ' Меню
           span.caret
