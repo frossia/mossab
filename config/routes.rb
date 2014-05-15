@@ -15,6 +15,7 @@ Mossab::Application.routes.draw do
 
   get 'pages/backup'
   get 'pages/do_backup'
+  resources :institutions
 
   resources :receptions
   resources :newspapers

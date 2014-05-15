@@ -1,0 +1,54 @@
+.content-panel
+  h4.h-post Социальный справочник
+  hr.hr-post
+  div.panel-group id='accordion'
+    - @institutions_category.each_with_index do |cat, i|
+      - unless cat.institutions.blank?
+        .panel.panel-default
+          .panel-heading
+            .panel-title
+              table width='100%'
+                tr
+                  td
+                    i.fa.fa-angle-down>
+                    a data-parent="#accordion" data-toggle="collapse" href="#tab_#{i}"
+                      = cat.name
+                  td.t-r
+                    span.badge.badge-default =' cat.institutions.count.to_s
+
+          div.panel-collapse.collapse id='tab_#{i}'
+            .panel-body
+              .list-group
+                - cat.institutions.each do |inst|
+                  /#########################
+                  h4 = inst.name
+                  /#########################
+                  - unless inst.address.blank?
+                    p
+                      b' Адрес:
+                      i =' inst.address
+                      small
+                        a href='https://www.google.ru/maps/search/#{inst.address}' target='blank'
+                          ' Посмотреть на карте
+                          i.fa.fa-share-square-o
+                  /#########################
+                  - unless inst.tel.blank?
+                    p
+                      b' Телефон:
+                      i =' inst.tel
+                  /#########################
+                  - unless inst.site.blank?
+                    p
+                      b' Сайт:
+                      i
+                        a href='#{inst.site}' target='blank' #{inst.site}
+                  /#########################
+                  - unless inst.email.blank?
+                    p
+                      b> E-mail:
+                      i
+                        a href='mailto:#{inst.email}' #{inst.email}
+
+
+                  - if inst != cat.institutions.last
+                    hr

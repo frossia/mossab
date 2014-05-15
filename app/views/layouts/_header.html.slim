@@ -112,6 +112,14 @@ br
                 hr.menu
             - else
               - i = i - 1
+      .col-md-4
+        div.inline
+          i(class='fa fa-info-circle fa-lg')
+          h5 = '&nbsp'.html_safe + 'Информация'
+        br
+        a.menu-item href='/newspapers' Газета "Москворечье-Сабурово. Вчера. Сегодня. Завтра"
+        a.menu-item href='/posts/videos' Видеоархив заседаний СД
+        a.menu-item href='/institutions' Социальный справочник
       .clearfix
       br
 
