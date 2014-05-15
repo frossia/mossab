@@ -21,25 +21,19 @@ ActiveAdmin.register Institution do
   #   tasks.where('end_date > ?', Date.today)
   # end
 
-  # index do
-  #   selectable_column
-  #
-  #   column :id
-  #   column :created_at
-  #   column :title
-  #   column :tags do |post|
-  #     post.tags.map { |p| status_tag(p.name, :warn) }.join(' ')
-  #   end
-  #   column :published do |story|
-  #     story.published? ? status_tag( "ДА", :ok ) : status_tag( "НЕТ" )
-  #   end
-  #   column :hot do |story|
-  #     story.hot? ? status_tag( "ДА", :ok ) : status_tag( "НЕТ" )
-  #   end
-  #
-  #
-  #   default_actions
-  # end
+  index do
+    selectable_column
+
+    column :id
+    column :name
+    column :address
+    column :tel
+    column :site
+    column :email
+    column :institution_category, :as => :select, :input_html => {:style => 'height: 200px'}
+
+    default_actions
+  end
 
   form do |f|
     #panel 'UUU' do

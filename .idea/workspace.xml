@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e8b3be3-bea3-4828-b56e-3096e1b2c745" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/institutions/index.html.slim" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/admin/institution.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.slim" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/institution.rb" afterPath="$PROJECT_DIR$/app/admin/institution.rb" />
     </list>
     <list id="815df1f8-493f-4cf1-ab74-344ada0ed838" name="Failed commit: Default" comment="sidemenu naming fail" />
     <ignored path="mossab.iws" />
@@ -90,7 +85,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.html.slim" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="index.html.slim" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/views/institutions/index.html.slim">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="900">
@@ -164,11 +159,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="institution.rb" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="institution.rb" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/admin/institution.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.12751678" vertical-offset="588" max-vertical-offset="1260">
-                  <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
+                <state vertical-scroll-proportion="0.4362416" vertical-offset="285" max-vertical-offset="1170">
+                  <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -238,8 +233,8 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/institutions_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_header.html.slim" />
-        <option value="$PROJECT_DIR$/app/admin/institution.rb" />
         <option value="$PROJECT_DIR$/app/views/institutions/index.html.slim" />
+        <option value="$PROJECT_DIR$/app/admin/institution.rb" />
       </list>
     </option>
   </component>
@@ -1563,18 +1558,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/institution.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12751678" vertical-offset="588" max-vertical-offset="1260">
-          <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/institutions/index.html.slim">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="900">
           <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/institution.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4362416" vertical-offset="285" max-vertical-offset="1170">
+          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
           <folding />
         </state>
       </provider>
