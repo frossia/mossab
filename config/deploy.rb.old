@@ -87,12 +87,17 @@ desc 'copy ckeditor nondigest assets'
 task :copy_nondigest_assets, roles: :app do
   run "cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} ckeditor:create_nondigest_assets"
 end
-after 'deploy:assets:precompile', 'copy_nondigest_assets'
+# after 'deploy:assets:precompile', 'copy_nondigest_assets'
 
 before 'deploy:finalize_update', 'set_current_release'
 task :set_current_release, :roles => :app do
   set :current_release, latest_release
 end
+
+# before "deploy:update_code", 'db:backup_uploads'
+# before "deploy:update_code", 'db:backup'
+# after "deploy", 'db:restore_uploads'
+# after "deploy", 'db:get_backup_and_restart'
 
 set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
@@ -103,6 +108,26 @@ set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do
 #   run "scp admin@frossiacsb.no-ip.biz:/Users/Admin/projects/mossab/db/development.sqlite3 #{deploy_to}/current/db/production.sqlite3"
 # end
 
+# namespace :files do
+  task :check, :roles => :app do
+
+    path = "#{deploy_to}/current/public/uploads"
+
+    path << '/' unless path.end_with?('/')
+
+    raise RuntimeError, "#{path} is not a directory" unless File.directory?(path)
+
+    total_size = 0
+    file_count = 0
+    Dir["#{path}**/*"].each do |f|
+      # total_size += File.size(f) if File.file?(f) && File.size?(f)
+      file_count = file_count + 1
+    end
+
+    puts file_count
+    # total_size = total_size / 2**20
+  end
+# end
 
 namespace :db do
 
@@ -110,10 +135,9 @@ namespace :db do
     run "cp #{deploy_to}/current/db/production.sqlite3 #{deploy_to}/db_backup/production.sqlite3"
     run "cp #{deploy_to}/current/db/production.sqlite3 #{deploy_to}/db_backup/backup#{Time.now.strftime("_%Y-%d-%m")}"
     download("#{current_path}/db/production.sqlite3", "/Users/Admin/projects/mossab/tmp/db_backup/backup#{Time.now.strftime("_%Y-%d-%m")}.sqlite3")
-    run_locally("rsync -ar --delete --stats -v hosting_mossaburovo@phosphorus.locum.ru:~/projects/mossab/current/public/uploads/ ~/projects/mossab/public/uploads/")
   end
 
-  task :restore do
+  task :get_backup_and_restart do
     deploy.stop
     run "cp #{deploy_to}/db_backup/production.sqlite3 #{deploy_to}/current/db/production.sqlite3"
     deploy.start
@@ -127,18 +151,33 @@ namespace :db do
     download("#{current_path}/db/production.sqlite3", "/Users/Admin/projects/mossab/db/development.sqlite3")
   end
 
-  task :down_upload do
-    run_locally("rsync -ar --delete --stats -v hosting_mossaburovo@phosphorus.locum.ru:~/projects/mossab/current/public/uploads/ ~/projects/mossab/public/uploads/")
+  task :backup_uploads do
+    run "cp -r -n #{current_path}/public/uploads/* #{deploy_to}/db_backup/uploads"
+  end
+
+  task :restore_uploads do
+    run "cp -r #{deploy_to}/db_backup/uploads/* #{current_path}/public/uploads/"
   end
 
 end
 
-# before "deploy:update_code", 'db:backup'
-# after "deploy:update_code", 'db:get_backup_and_restart'
+
 
 
 # - for unicorn - #
 namespace :deploy do
+
+  namespace :assets do
+    # task :precompile, :roles => :web, :except => { :no_release => true } do
+    #   from = source.next_revision(current_revision)
+    #   if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
+    #     run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+    #   else
+    #     logger.info "Skipping asset pre-compilation because there were no asset changes"
+    #   end
+    # end
+  end
+
   desc "Start application"
   task :start, :roles => :app do
     run unicorn_start_cmd

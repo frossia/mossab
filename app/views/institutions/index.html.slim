@@ -11,6 +11,7 @@
                 tr
                   td
                     i.fa.fa-angle-down>
+                      | &nbsp;&nbsp;
                     a data-parent="#accordion" data-toggle="collapse" href="#tab_#{i}"
                       = cat.name
                   td.t-r
@@ -29,12 +30,12 @@
                       i =' inst.address
                       small
                         a href='https://www.google.ru/maps/search/#{inst.address}' target='blank'
-                          ' Посмотреть на карте
+                          ' На карте
                           i.fa.fa-share-square-o
                   /#########################
                   - unless inst.tel.blank?
                     p
-                      b' Телефон:
+                      b' Телефоны:
                       i =' inst.tel
                   /#########################
                   - unless inst.site.blank?

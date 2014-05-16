@@ -72,7 +72,7 @@ gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 
 gem 'capistrano', '~> 2.15.5'
 
-gem 'net-ssh', '~> 2.8.1', :git => "https://github.com/net-ssh/net-ssh"
+# gem 'net-ssh', '~> 2.9.1', :git => "https://github.com/net-ssh/net-ssh"
 
 gem 'unicorn'
 

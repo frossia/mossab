@@ -1,6 +1,6 @@
 - Category.all.each_with_index do |cat, i|
 
-  .col-md-4
+  .col-md-12
     .inline.cat-header
       i(class='#{cat.icon} fa-lg')
       h5 = '&nbsp'.html_safe + cat.name
@@ -9,6 +9,15 @@
       a.menu-item href='#{page_path(page)}' = page.title
       - if (i < cat.pages.count-1)
         hr.menu
+
+.col-md-12
+  div.inline.cat-header
+    i(class='fa fa-info-circle fa-lg')
+    h5 = '&nbsp'.html_safe + 'Информация'
+  br
+  a.menu-item href='/newspapers' Газета "Москворечье-Сабурово. Вчера. Сегодня. Завтра"
+  a.menu-item href='/posts/videos' Видеоархив заседаний СД
+  a.menu-item href='/institutions' Социальный справочник
 
 .clearfix
 br
