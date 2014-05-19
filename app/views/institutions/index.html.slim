@@ -12,7 +12,7 @@
                   td
                     i.fa.fa-angle-down>
                       | &nbsp;&nbsp;
-                    a data-parent="#accordion" data-toggle="collapse" href="#tab_#{i}"
+                    a name='tab_#{i}' data-parent="#accordion" data-toggle="collapse" href="#tab_#{i}"
                       = cat.name
                   td.t-r
                     span.badge.badge-default =' cat.institutions.count.to_s

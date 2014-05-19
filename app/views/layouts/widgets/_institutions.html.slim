@@ -1,0 +1,14 @@
+.content-panel
+  h5.h-post Социальный справочник
+  hr.hr-post
+
+  - categories = InstitutionCategory.all
+  - categories.each_with_index do |cat, i|
+    - inst = cat.institutions.first
+    p
+      i = cat.name
+      span.badge.pull-right = cat.institutions.count
+
+  div.t-r
+    hr.hr-post
+    a.link.t-uppercase href='#{url_for :controller => 'institutions', :action => 'index'}' Социальный справочник

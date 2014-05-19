@@ -97,25 +97,19 @@ end
 set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 
-# after "deploy:update_code", :copy_database
-#
-# task :copy_database, roles => :app do
-#   run "scp admin@frossiacsb.no-ip.biz:/Users/Admin/projects/mossab/db/development.sqlite3 #{deploy_to}/current/db/production.sqlite3"
-# end
-
 
 namespace :db do
 
   task :backup do
-    run "cp #{deploy_to}/current/db/production.sqlite3 #{deploy_to}/db_backup/production.sqlite3"
-    run "cp #{deploy_to}/current/db/production.sqlite3 #{deploy_to}/db_backup/backup#{Time.now.strftime("_%Y-%d-%m")}"
+    run "cp #{deploy_to}/current/db/production.sqlite3 #{deploy_to}/backup/db/production.sqlite3"
+    run "cp #{deploy_to}/current/db/production.sqlite3 #{deploy_to}/backup/db/backup#{Time.now.strftime("_%Y-%d-%m")}"
     download("#{current_path}/db/production.sqlite3", "/Users/Admin/projects/mossab/tmp/db_backup/backup#{Time.now.strftime("_%Y-%d-%m")}.sqlite3")
     run_locally("rsync -ar --delete --stats -v hosting_mossaburovo@phosphorus.locum.ru:~/projects/mossab/current/public/uploads/ ~/projects/mossab/public/uploads/")
   end
 
   task :restore do
     deploy.stop
-    run "cp #{deploy_to}/db_backup/production.sqlite3 #{deploy_to}/current/db/production.sqlite3"
+    run "cp #{deploy_to}/backup/db/production.sqlite3 #{deploy_to}/current/db/production.sqlite3"
     deploy.start
   end
 
@@ -133,8 +127,8 @@ namespace :db do
 
 end
 
-# before "deploy:update_code", 'db:backup'
-# after "deploy:update_code", 'db:get_backup_and_restart'
+before "deploy:update_code", 'db:backup'
+after "deploy", 'db:restore'
 
 
 # - for unicorn - #
